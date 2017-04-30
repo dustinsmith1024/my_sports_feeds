@@ -15,7 +15,8 @@ defmodule MySportsFeeds.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger],
+      mod: {MySportsFeeds, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -31,6 +32,8 @@ defmodule MySportsFeeds.Mixfile do
     [
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 2.0"},
+      {:cachex, "~> 2.1"},
+      {:credo, "~> 0.7", only: [:dev, :test]},
     ]
   end
 end

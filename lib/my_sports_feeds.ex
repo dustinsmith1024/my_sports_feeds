@@ -1,4 +1,5 @@
 defmodule MySportsFeeds do
+  use Application
   require Logger
 
   @moduledoc """
@@ -14,8 +15,7 @@ defmodule MySportsFeeds do
       :world
 
   """
-  def hello do
-    :world
+  def start(_type, _args) do
+    MySportsFeeds.Cache.Supervisor.start_link
   end
-
 end
