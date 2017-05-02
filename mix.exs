@@ -3,10 +3,13 @@ defmodule MySportsFeeds.Mixfile do
 
   def project do
     [app: :my_sports_feeds,
+     description: "A HTTP API wrapper for mysportsfeeds.com",
+     source_url: "https://github.com/dustinsmith1024/my_sports_feeds",
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     package: package(),
      deps: deps()]
   end
 
@@ -30,10 +33,19 @@ defmodule MySportsFeeds.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      {:ex_doc, ">= 0.0.0", only: :dev},
       {:httpoison, "~> 0.11.1"},
       {:poison, "~> 2.0"},
       {:cachex, "~> 2.1"},
       {:credo, "~> 0.7", only: [:dev, :test]},
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Dustin Smith"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/dustinsmith1024/my_sports_feeds"}
     ]
   end
 end

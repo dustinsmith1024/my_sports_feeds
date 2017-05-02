@@ -8,6 +8,10 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
+
+config :my_sports_feeds, token: System.get_env("MY_SPORTS_FEEDS_TOKEN")
+# config :ex_twilio, auth_token:  System.get_env("TWILIO_AUTH_TOKEN")
+
 # You can configure for your application as:
 #
 #     config :my_sports_feeds, key: :value
