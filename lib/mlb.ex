@@ -107,15 +107,15 @@ defmodule MySportsFeeds.MLB do
         "TotalChances"
         "UnearnedRuns"
   """
-  def daily_player_stats(date, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    # date format is "2016-11-04"
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_player_stats.json?fordate=#{stripped_date}&force=#{options.force}"
+  def daily_player_stats(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 300) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", "")}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_player_stats.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -140,14 +140,13 @@ defmodule MySportsFeeds.MLB do
 
         iex(16)> stats["cumulativeplayerstats"]["playerstatsentry"] |> hd
   """
-  def cumulative_player_stats(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts) # add player_stats??
-    # playerstats={player-stats}
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/cumulative_player_stats.json?force=#{options.force}"
+  def cumulative_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/cumulative_player_stats.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -162,13 +161,13 @@ defmodule MySportsFeeds.MLB do
             "Name" => "Rays"}, "id" => "40265", "location" => "Tropicana Field",
         "time" => "1:10PM"}
   """
-  def full_game_schedule(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/full_game_schedule.json?force=#{options.force}"
+  def full_game_schedule(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/full_game_schedule.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -185,16 +184,16 @@ defmodule MySportsFeeds.MLB do
           "ID" => "135", "Name" => "Reds"}, "id" => "38422",
         "location" => "Great American Ball Park", "time" => "1:10PM"},
   """
-  def daily_game_schedule(date, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    # date format is "2016-11-04"
-    # TODO: pull season from date?
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_game_schedule.json?fordate=#{stripped_date}&force=#{options.force}"
+  def daily_game_schedule(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", ""),
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_game_schedule.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
 
@@ -251,16 +250,16 @@ defmodule MySportsFeeds.MLB do
         "battingTeam" => %{"Abbreviation" => "CHC", "City" => "Chicago",
             "ID" => "131", "Name" => "Cubs"}, "inning" => "1", "inningHalf" => "top"}
   """
-  def game_play_by_play(game, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    # date format is "2016-11-04"
-    # TODO: pull season from date?
-    # stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/game_playbyplay.json?gameid=#{game}&force=#{options.force}"
+  def game_play_by_play(game, season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{
+      force: "false",
+      gameid: game,
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/game_playbyplay.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
 
@@ -283,18 +282,16 @@ defmodule MySportsFeeds.MLB do
                 "Homeruns" => %{"#text" => "0", "@abbreviation" => "HR",
                     "@category" => "Batting"},
   """
-  def game_boxscore(game, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    # date format is "2016-11-04"
-    # TODO: pull season from date?
-    # stripped_date = String.replace(date, "-", "")
-    # &teamstats={team-stats}&playerstats={player-stats}
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/game_boxscore.json?gameid=#{game}&force=#{options.force}"
-    # url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/game_playbyplay.json?gameid=#{game}&force=#{options.force}"
+  def game_boxscore(game, season \\ "latest", opts \\ %{}, ttl_seconds \\ 300) do
+    query_params = %{
+      force: "false",
+      gameid: game,
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/game_boxscore.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
 
@@ -351,14 +348,16 @@ defmodule MySportsFeeds.MLB do
       iex(11)> game["game"]["awayTeam"]["Name"] <> " " <>  game["awayScore"] <> "-" <> " " <> game["game"]["homeTeam"]["Name"] <> " " <>  game["homeScore"]
       "Cubs 12- Reds 8"
   """
-  def scoreboard(date, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/scoreboard.json?fordate=#{stripped_date}&force=#{options.force}"
+  def scoreboard(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", ""),
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/scoreboard.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -384,14 +383,16 @@ defmodule MySportsFeeds.MLB do
             "team" => %{"Abbreviation" => "NYY", "City" => "New York",
             "ID" => "114", "Name" => "Yankees"}},
   """
-  def roster_players(date, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/roster_players.json?fordate=#{stripped_date}&force=#{options.force}"
+  def roster_players(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", ""),
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/roster_players.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -457,14 +458,16 @@ defmodule MySportsFeeds.MLB do
     Danny Salazar - 10000
     Chris Archer - 9900
   """
-  def daily_dfs(date, season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_dfs.json?fordate=#{stripped_date}&force=#{options.force}"
+  def daily_dfs(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", ""),
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/daily_dfs.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -479,13 +482,16 @@ defmodule MySportsFeeds.MLB do
           "supportedPlayerStats" => %{"playerStat" => [%{"abbreviation" => "2PA",
               "category" => "Field Goals", "name" => "2Pt Field Goal Attempts"},
   """
-  def current_season(date, opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
-    stripped_date = String.replace(date, "-", "")
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/current_season.json?fordate=#{stripped_date}&force=#{options.force}"
+  def current_season(date, opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{
+      force: "false",
+      fordate: String.replace(date, "-", ""),
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/current_season.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
 
@@ -506,14 +512,13 @@ defmodule MySportsFeeds.MLB do
                 "team" => %{"Abbreviation" => "BOS", "City" => "Boston", "ID" => "113",
                 "Name" => "Red Sox"}},
   """
-  def active_players(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def active_players(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/active_players.json?force=#{options.force}"
-
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/active_players.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
 
@@ -542,38 +547,33 @@ defmodule MySportsFeeds.MLB do
                   "@category" => "Field Goals"},
 
   """
-  def overall_team_standings(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def overall_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
     # teamstats={team-stats}&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/overall_team_standings.json?force=#{options.force}"
-    # url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/active_players.json?force=#{options.force}"
 
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/overall_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
-  def conference_team_standings(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def conference_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    # teamstats=none&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/conference_team_standings.json?force=#{options.force}"
-
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/conference_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
-  def division_team_standings(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def division_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    # teamstats=none&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/division_team_standings.json?force=#{options.force}"
-
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/division_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -581,14 +581,13 @@ defmodule MySportsFeeds.MLB do
 
   Seems the same as conference_team_standings.
   """
-  def playoff_team_standings(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def playoff_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    # teamstats=none&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/playoff_team_standings.json?force=#{options.force}"
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/playoff_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -609,15 +608,13 @@ defmodule MySportsFeeds.MLB do
             "team" => %{"Abbreviation" => "OKL", "City" => "Oklahoma City",
               "ID" => "96", "Name" => "Thunder"}},
   """
-  def player_injuries(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def player_injuries(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    # teamstats=none&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/player_injuries.json?force=#{options.force}"
-
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/player_injuries.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
   @doc """
@@ -647,30 +644,13 @@ defmodule MySportsFeeds.MLB do
               %{"forDate" => "2016-10-29",
                 "lastUpdatedOn" => "2016-10-29 11:05:52 AM"},
   """
-  def latest_updates(season \\ "latest", opts \\ %{}) do
-    options = Map.merge(%{force: "false"}, opts)
+  def latest_updates(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
 
-    # teamstats=none&
-    url = "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/latest_updates.json?force=#{options.force}"
-
-
-    Request.get(url)
-    |> parse
+    "https://www.mysportsfeeds.com/api/feed/pull/mlb/#{season}/latest_updates.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
   end
 
-  defp parse(response) do
-     case response.status_code do
-      304 ->
-        Logger.info "No new info found"
-        {:ok, false}
-      200 ->
-        # TODO: Make a formatted response handler here.
-        # Can make an option to pass back 'raw' if wanted
-        Logger.info "Got results...parsing"
-        Request.parse(response)
-      other ->
-        IO.inspect response.headers
-        {:error, other}
-    end
-  end
 end
