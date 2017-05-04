@@ -290,7 +290,6 @@ defmodule MySportsFeeds.NFL do
 
   @doc """
 
-
   (game date as YYYYMMDD) + "-" +
   (away team abbreviation) + "-" +
   (home team abbreviation)
@@ -563,7 +562,7 @@ defmodule MySportsFeeds.NFL do
                 "Name" => "Full Game Schedule"},
               "lastUpdatedOn" => "2017-01-24 2:59:35 AM"},
   """
-  def latest_updates(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+  def latest_updates(season \\ "latest", opts \\ %{}, ttl_seconds \\ 60) do
     query_params = %{
       force: "false",
     }
