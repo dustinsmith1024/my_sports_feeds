@@ -77,7 +77,7 @@ defmodule MySportsFeeds.NBA do
       "team" => %{"Abbreviation" => "OKL", "City" => "Oklahoma City", "ID" => "96",
         "Name" => "Thunder"}}
   """
-  def cumulative_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+  def cumulative_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{force: "false"}
     |> Map.merge(opts)
     |> URI.encode_query

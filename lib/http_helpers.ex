@@ -49,7 +49,7 @@ defmodule MySportsFeeds.Request do
   end
 
   def headers do
-    default_headers = %{
+    %{
       "Content-Type": "application/json",
       "Authorization": "Basic " <> Application.get_env(:my_sports_feeds, :token)
     }
@@ -82,5 +82,14 @@ defmodule MySportsFeeds.Request do
       Logger.debug "#{inspect response}"
       {:error, other}
     end
+  end
+
+  def cached_keys do
+    {_, keys} = Cachex.keys(:app_cache)
+
+    Enum.map(keys, fn(key) ->
+      {_, ttl} = Cachex.ttl(:app_cache, key)
+      {key, ttl}
+    end)
   end
 end

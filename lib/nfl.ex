@@ -232,7 +232,7 @@ defmodule MySportsFeeds.NFL do
     "team" => %{"Abbreviation" => "MIA", "City" => "Miami", "ID" => "49",
       "Name" => "Dolphins"}}
   """
-  def cumulative_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
+  def cumulative_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{force: "false"}
     |> Map.merge(opts)
     |> URI.encode_query
