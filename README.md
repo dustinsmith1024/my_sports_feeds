@@ -17,10 +17,10 @@ end
 
 ## Running
 
-You will need an account with My Sports Feeds, then place your login:password in the `MY_SPORTS_FEEDS_TOKEN` environments variable. 
+You will need an account with My Sports Feeds, then place your login:password in the `MY_SPORTS_FEEDS_TOKEN` environments variable.
 
 ```
-▶ MY_SPORTS_FEEDS_TOKEN="ZHVzdGluc21pdGgxMDI0OkR1JHRpbjEwMjQ=" iex -S mix
+▶ MY_SPORTS_FEEDS_TOKEN="<your_token>" iex -S mix
 
 # Make API call
 iex(1)> MySportsFeeds.NFL.daily_player_stats("2016-09-11")

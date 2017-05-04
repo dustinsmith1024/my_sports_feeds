@@ -2,8 +2,12 @@ defmodule MySportsFeeds.NBA do
   require Logger
   alias MySportsFeeds.Request
 
+  @moduledoc """
+  API for National Basketball Association (NBA).
+  """
+
   @doc """
-  daily_player_stats: Fetch NBA stats for a date.
+  Fetch NBA stats for a date.
 
   ## Examples
 
@@ -59,7 +63,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  cumulative_player_stats: Get all the players stats for the whole season.
+  Get all players stats for a season.
 
   ## Examples
 
@@ -87,10 +91,10 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  full_game_schedule: gets the schedule for the season.
+  Gets the schedule for the season.
 
-  iex(20)> {status, stats} = MySportsFeeds.NBA.full_game_schedule
-  stats["fullgameschedule"]["gameentry"] |> hd
+      iex(20)> {status, stats} = MySportsFeeds.NBA.full_game_schedule
+      stats["fullgameschedule"]["gameentry"] |> hd
   """
   def full_game_schedule(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
     query_params = %{force: "false"}
@@ -128,6 +132,7 @@ defmodule MySportsFeeds.NBA do
 
 
   @doc """
+  Fetches the play by play for a single game.
 
   (game date as YYYYMMDD) + "-" +
   (away team abbreviation) + "-" +
@@ -157,10 +162,9 @@ defmodule MySportsFeeds.NBA do
 
 
   @doc """
-  game_boxscore: Box Score for the game. Includes all scoring plays.
+  Box Score for the game. Includes all scoring plays.
 
   ## Examples:
-
 
       iex(1)> {s, p} = MySportsFeeds.NBA.game_boxscore("20170405-GSW-PHX")
 
@@ -189,7 +193,7 @@ defmodule MySportsFeeds.NBA do
 
 
   @doc """
-  scoreboard: get scores of all games on a day.
+  Get scores of all games on a day.
 
   ## Examples:
 
@@ -211,6 +215,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
+  Get all the players currently on rosters.
 
   ## Examples:
 
@@ -236,7 +241,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  daily_dfs
+  Daily fantasy salaries from Draft Kings and Fan Duel.
 
   ## Examples:
 
@@ -281,7 +286,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  current_season: Grabs season with some details.
+  Grabs season with some details.
 
   iex(1)> MySportsFeeds.NBA.current_season("2017-01-03")
   {:ok,
@@ -306,7 +311,7 @@ defmodule MySportsFeeds.NBA do
 
 
   @doc """
-  active_players: fetch all active players regardless if they are on a roster or not.
+  Fetch all active players regardless if they are on a roster or not.
 
   ## Examples:
 
@@ -335,7 +340,7 @@ defmodule MySportsFeeds.NBA do
 
 
   @doc """
-  overall_team_standings
+  Overall team standings for the season.
 
   ## Examples:
 
@@ -370,6 +375,9 @@ defmodule MySportsFeeds.NBA do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Conference team standings for the season.
+  """
   def conference_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{
       force: "false",
@@ -381,6 +389,9 @@ defmodule MySportsFeeds.NBA do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Division team standings for the season.
+  """
   def division_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{
       force: "false",
@@ -393,9 +404,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  playoff_team_standings:
-
-  Seems the same as conference_team_standings.
+  Playoff team standings for the season.
   """
   def playoff_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{
@@ -409,8 +418,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  player_injuries
-
+  Fetch all the injuries.
 
   ## Examples:
 
@@ -438,7 +446,7 @@ defmodule MySportsFeeds.NBA do
   end
 
   @doc """
-  latest_updates
+  Status updates about the MySportsFeeds API and when each route was last updated.
 
   ## Examples:
 

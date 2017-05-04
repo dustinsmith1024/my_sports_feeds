@@ -5,7 +5,7 @@ defmodule MySportsFeeds.Mixfile do
     [app: :my_sports_feeds,
      description: "A HTTP API wrapper for mysportsfeeds.com",
      source_url: "https://github.com/dustinsmith1024/my_sports_feeds",
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,

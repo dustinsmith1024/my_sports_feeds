@@ -3,17 +3,12 @@ defmodule MySportsFeeds do
   require Logger
 
   @moduledoc """
-  Documentation for MySportsFeeds.
+  Entry point for the MySportsFeeds application.
+  Kicks off caching layer.
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> MySportsFeeds.hello
-      :world
-
+  Starts the cache.
   """
   def start(_type, _args) do
     MySportsFeeds.Cache.Supervisor.start_link

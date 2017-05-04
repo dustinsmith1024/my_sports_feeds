@@ -2,6 +2,10 @@ defmodule MySportsFeeds.NFL do
   require Logger
   alias MySportsFeeds.Request
 
+  @moduledoc """
+  API for National Football League (NFL).
+  """
+
   @doc """
   Fetch NBA stats for a date.
 
@@ -136,7 +140,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  cumulative_player_stats: Get all the players stats for the whole season.
+  Get all the players stats for the whole season.
 
   ## Examples
 
@@ -242,7 +246,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  full_game_schedule: gets the schedule for the season.
+  Gets the schedule for the season.
 
   iex(20)> {status, stats} = MySportsFeeds.NFL.full_game_schedule
   iex(18)> stats["fullgameschedule"]["gameentry"] |> hd
@@ -262,7 +266,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  daily_game_schedule: gets the schedule for a date.
+  Gets the schedule for a date.
 
   ## Examples:
 
@@ -289,6 +293,7 @@ defmodule MySportsFeeds.NFL do
 
 
   @doc """
+  Play by play for an NFL game.
 
   (game date as YYYYMMDD) + "-" +
   (away team abbreviation) + "-" +
@@ -328,7 +333,7 @@ defmodule MySportsFeeds.NFL do
 
 
   @doc """
-  game_boxscore: Box Score for the game. Includes all scoring plays.
+  Box Score for the game. Includes all scoring plays.
 
   ## Examples:
 
@@ -380,7 +385,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  scoreboard: get scores of all games on a day.
+  Get scores of all games on a day.
 
   ## Examples:
 
@@ -420,6 +425,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
+  Players that are on a roster for the date passed in.
 
   ## Examples:
 
@@ -444,7 +450,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  daily_dfs
+  Daily fantasy salaries from Draft Kings and Fan Duel.
 
   ## Examples:
     # No examples yet, since the season hasn't started.
@@ -491,7 +497,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  current_season: Grabs season with some details.
+  Grabs season with some details.
 
   ## Examples:
 
@@ -519,7 +525,7 @@ defmodule MySportsFeeds.NFL do
 
 
   @doc """
-  active_players: fetch all active players regardless if they are on a roster or not.
+  Fetch all active players regardless if they are on a roster or not.
 
   ## Examples:
 
@@ -547,7 +553,7 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  latest_updates
+  Status updates about the MySportsFeeds API and when each route was last updated.
 
   ## Examples:
 

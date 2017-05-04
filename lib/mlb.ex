@@ -2,8 +2,12 @@ defmodule MySportsFeeds.MLB do
   require Logger
   alias MySportsFeeds.Request
 
+  @moduledoc """
+  API for Major League Baseball (MLB).
+  """
+
   @doc """
-  daily_player_stats: Fetch MLB stats for a date.
+  Fetch MLB stats for a date.
 
   ## Examples
 
@@ -119,7 +123,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  cumulative_player_stats: Get all the players stats for the whole season.
+  Get all the players stats for the whole season.
 
   ## Examples
 
@@ -150,7 +154,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  full_game_schedule: gets the schedule for the season.
+  Gets the schedule for the season.
 
   ## Examples:
     iex(20)> {status, stats} = MySportsFeeds.MLB.full_game_schedule
@@ -171,7 +175,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  daily_game_schedule: gets the schedule for a date.
+  Gets the schedule for a date.
 
   ## Examples:
 
@@ -198,7 +202,7 @@ defmodule MySportsFeeds.MLB do
 
 
   @doc """
-
+  Play by play for an NFL game.
 
   (game date as YYYYMMDD) + "-" +
   (away team abbreviation) + "-" +
@@ -264,7 +268,7 @@ defmodule MySportsFeeds.MLB do
 
 
   @doc """
-  game_boxscore: Box Score for the game. Includes all scoring plays.
+  Box Score for the game. Includes all scoring plays.
 
   ## Examples:
 
@@ -296,7 +300,7 @@ defmodule MySportsFeeds.MLB do
 
 
   @doc """
-  scoreboard: get scores of all games on a day.
+  Get scores of all games on a day.
 
   ## Examples:
 
@@ -361,6 +365,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
+  Players that are on a roster for the date passed in.
 
   ## Examples:
 
@@ -396,7 +401,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  daily_dfs
+  Daily fantasy salaries from Draft Kings and Fan Duel.
 
   ## Examples:
 
@@ -471,7 +476,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  current_season: Grabs season with some details.
+  Grabs season with some details.
 
   iex(1)> MySportsFeeds.MLB.current_season("2017-01-03")
   {:ok,
@@ -496,7 +501,7 @@ defmodule MySportsFeeds.MLB do
 
 
   @doc """
-  active_players: fetch all active players regardless if they are on a roster or not.
+  Fetch all active players regardless if they are on a roster or not.
 
   ## Examples:
 
@@ -523,7 +528,7 @@ defmodule MySportsFeeds.MLB do
 
 
   @doc """
-  overall_team_standings
+  Overall team standings for MLB.
 
   ## Examples:
 
@@ -558,6 +563,9 @@ defmodule MySportsFeeds.MLB do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Conference team standings for MLB.
+  """
   def conference_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{force: "false"}
     |> Map.merge(opts)
@@ -567,6 +575,9 @@ defmodule MySportsFeeds.MLB do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Division team standings for MLB.
+  """
   def division_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{force: "false"}
     |> Map.merge(opts)
@@ -577,9 +588,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  playoff_team_standings:
-
-  Seems the same as conference_team_standings.
+  Playoff team standings for MLB.
   """
   def playoff_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{force: "false"}
@@ -591,7 +600,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  player_injuries
+  Player injuries.
 
 
   ## Examples:
@@ -618,7 +627,7 @@ defmodule MySportsFeeds.MLB do
   end
 
   @doc """
-  latest_updates
+  Status updates about the MySportsFeeds API and when each route was last updated.
 
   ## Examples:
 
