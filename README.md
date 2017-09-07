@@ -15,6 +15,14 @@ def deps do
 end
 ```
 
+## Config
+
+In you `config.exs` file put something like.  Match the environment variable you use when running your application.
+```elixir 
+config :my_sports_feeds, token: System.get_env("MY_SPORTS_FEEDS_TOKEN")
+```
+
+
 ## Running
 
 You will need an account with My Sports Feeds, then place your login:password in the `MY_SPORTS_FEEDS_TOKEN` environments variable.
