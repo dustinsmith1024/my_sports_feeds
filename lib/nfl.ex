@@ -552,6 +552,53 @@ defmodule MySportsFeeds.NFL do
     |> Request.cached_get(ttl_seconds)
   end
 
+  def overall_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    # teamstats={team-stats}&
+
+    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/overall_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
+  end
+
+  @doc """
+  Conference team standings for NFL.
+  """
+  def conference_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/conference_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
+  end
+
+  @doc """
+  Division team standings for NFL.
+  """
+  def division_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/division_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
+  end
+
+  @doc """
+  Playoff team standings for NFL.
+  """
+  def playoff_team_standings(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false"}
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/playoff_team_standings.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
+  end
+
   @doc """
   Status updates about the MySportsFeeds API and when each route was last updated.
 
