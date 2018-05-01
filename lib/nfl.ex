@@ -136,7 +136,7 @@ defmodule MySportsFeeds.NFL do
 
     # date format is "2016-11-04"
     "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
+    |> Request.cached_get(ttl_seconds) # pass a decode function?
   end
 
   @doc """
