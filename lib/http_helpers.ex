@@ -22,8 +22,8 @@ defmodule MySportsFeeds.Request do
     case cached_val do
         {:ok, v} when is_nil(v) == false -> v # Use cache
         {_, _} -> # {:error/:missing/:false, nil}
-            force_url = String.replace(url, "force=false", "force=true")
-            res = get(force_url)
+            # force_url = String.replace(url, "force=false", "force=true")
+            res = get(url)
 
             cache(url, res, ttl_seconds)
 
@@ -39,7 +39,7 @@ defmodule MySportsFeeds.Request do
 
   def cache(key, val, ttl_seconds) do
       Task.async(fn ->
-        key = clean_cache_key(key)
+        # key = clean_cache_key(key)
         Cachex.set(:app_cache, key, val, ttl: :timer.seconds(ttl_seconds))
       end)
   end

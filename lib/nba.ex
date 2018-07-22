@@ -181,7 +181,7 @@ defmodule MySportsFeeds.NBA do
   """
   def game_boxscore(game, season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     query_params = %{
-      force: "false",
+      # force: "false",
       gameid: game,
     }
     |> Map.merge(opts)

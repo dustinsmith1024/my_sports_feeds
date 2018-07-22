@@ -18,7 +18,7 @@ end
 ## Config
 
 In you `config.exs` file put something like.  Match the environment variable you use when running your application.
-```elixir 
+```elixir
 config :my_sports_feeds, token: System.get_env("MY_SPORTS_FEEDS_TOKEN")
 ```
 
@@ -91,3 +91,19 @@ Force a API update with %{force: true}
 ```elixir
 iex(5)> MySportsFeeds.NFL.daily_player_stats("2016-09-11", %{force: true})
 ```
+
+
+# V2 Notes
+
+https://api.mysportsfeeds.com/v2.0/pull/nba/2018-playoff/player_stats_totals.json
+
+https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/venues.json
+
+https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/week/2/games.json?forweek=1
+
+https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/date/20180909/games.json
+
+https://api.mysportsfeeds.com/v2.0/pull/nba/latest/dfs.json
+
+Could take the latest updates
+https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/latest_updates.json

@@ -12,7 +12,7 @@ defmodule MySportsFeeds.NFL do
   ## Examples
 
       iex(2)> {k, s} = MySportsFeeds.NFL.daily_player_stats("2016-09-11", %{force: true})
-      11:13:00.002 [info]  Go for URL: https://www.mysportsfeeds.com/api/feed/pull/nfl/2016-2017-regular/daily_player_stats.json?fordate=20160911&force=true
+      11:13:00.002 [info]  Go for URL: https://api.mysportsfeeds.com/v1.2/pull/nfl/2016-2017-regular/daily_player_stats.json?fordate=20160911&force=true
       11:13:09.506 [info]  Got results...parsing
       {:ok,
       %{"dailyplayerstats" => %{"lastUpdatedOn" => "2016-12-10 3:31:46 PM",
@@ -119,7 +119,7 @@ defmodule MySportsFeeds.NFL do
   """
   def daily_player_stats(date, season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
     # Filters are a common separated list
-    # https://www.mysportsfeeds.com/api/feed/pull/nba/latest/daily_player_stats.json
+    # https://api.mysportsfeeds.com/v1.2/pull/nba/latest/daily_player_stats.json
     #   ?fordate=20170426&player=kent-bazemore,bradley-beal
     #   &playerstats=2PA,REB,OREB,DREB
     # team={list-of-teams} (filter teams)
@@ -135,7 +135,7 @@ defmodule MySportsFeeds.NFL do
     |> URI.encode_query
 
     # date format is "2016-11-04"
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -241,7 +241,18 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/cumulative_player_stats.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/cumulative_player_stats.json?#{query_params}"
+    |> Request.cached_get(ttl_seconds)
+  end
+
+
+  def seasonal_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+    query_params = %{force: "false", team: "GB"}
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    # https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=GB
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -261,7 +272,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/full_game_schedule.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/full_game_schedule.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -287,7 +298,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_game_schedule.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/daily_game_schedule.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -327,7 +338,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/game_playbyplay.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/game_playbyplay.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -380,7 +391,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/game_boxscore.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/game_boxscore.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -395,7 +406,7 @@ defmodule MySportsFeeds.NFL do
       "Packers 27- Jaguars 23"
 
       iex(15)> {s, p} = MySportsFeeds.NFL.scoreboard("20160911", "2016-regular", %{force: true})
-      21:07:46.802 [info]  Go for URL: https://www.mysportsfeeds.com/api/feed/pull/nfl/2016-regular/scoreboard.json?fordate=20160911&force=true
+      21:07:46.802 [info]  Go for URL: https://api.mysportsfeeds.com/v1.2/pull/nfl/2016-regular/scoreboard.json?fordate=20160911&force=true
       21:07:47.024 [info]  Got results...parsing
       {:ok,
       %{"scoreboard" => %{"gameScore" => [%{"awayScore" => "27",
@@ -420,7 +431,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/scoreboard.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/scoreboard.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -445,7 +456,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/roster_players.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/roster_players.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -492,7 +503,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_dfs.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/daily_dfs.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -519,7 +530,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/current_season.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/current_season.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -548,7 +559,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/active_players.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/active_players.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -559,7 +570,7 @@ defmodule MySportsFeeds.NFL do
 
     # teamstats={team-stats}&
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/overall_team_standings.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/overall_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -571,7 +582,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/conference_team_standings.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/conference_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -583,7 +594,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/division_team_standings.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/division_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -595,7 +606,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/playoff_team_standings.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/playoff_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
@@ -622,7 +633,7 @@ defmodule MySportsFeeds.NFL do
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/latest_updates.json?#{query_params}"
+    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/latest_updates.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
 
