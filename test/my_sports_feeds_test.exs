@@ -45,12 +45,26 @@ defmodule MySportsFeedsTest do
     assert(player.id == 14445 )
     assert(player.firstName == "Jason")
     assert(player.lastName == "Adam")
+    assert(player.currentTeam.abbreviation == "KC")
+    # not sure why these are not filled out
+    # maybe they are prospects?
+    assert(player.handedness.bats == nil)
     assert(team.abbreviation == "KC")
     # "receiving": {
     #   "targets": 118,
     assert(stats.receiving.targets == nil)
     assert(stats.batting.atBats == 0)
     assert(stats.pitching.earnedRunAvg == 4.22)
+
+    %{player: injuredPlayer} = Enum.find(s.playerStatsTotals, fn(player) ->
+      player.player.id == 11322
+    end)
+
+    assert(injuredPlayer.id == 11322 )
+    assert(injuredPlayer.handedness.bats == "R")
+    assert(injuredPlayer.handedness.throws == "R")
+    assert(injuredPlayer.currentInjury.description == "lower-back strain")
+    assert(injuredPlayer.currentInjury.playingProbability == "OUT")
   end
 
   test "parse nfl games json to struct" do

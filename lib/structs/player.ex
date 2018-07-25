@@ -14,9 +14,9 @@ defmodule MySportsFeeds.Entities.Player do
     jerseyNumber: nil, # 12,
     # https://stackoverflow.com/questions/30855638/elixir-nested-json-parsing-to-structs
     # How to easily map these?
-    currentTeam: nil,
+    currentTeam: %Team{},
     currentRosterStatus: nil, # "ROSTER",
-    currentInjury: nil, # null,
+    currentInjury: %Injury{}, # null,
     height: nil, # "6'2\"",
     weight: nil, # 225,
     birthDate: nil, # "1983-12-02Z",
@@ -26,14 +26,14 @@ defmodule MySportsFeeds.Entities.Player do
     rookie: nil, # false,
     college: nil, # null,
     twitter: nil, # null,
-    handedness: nil, # Baseball only?
+    handedness: %Handedness{}, # Baseball only?
   ]
 
-  def decode(response) do
-    Poison.decode(response, as: %Player{
-      currentTeam: %Team{},
-      handedness: %Handedness{},
-      currentInjury: %Injury{},
-    })
-  end
+  # def decode(response) do
+  #   Poison.decode(response, as: %Player{
+  #     currentTeam: %Team{},
+  #     handedness: %Handedness{},
+  #     currentInjury: %Injury{},
+  #   })
+  # end
 end
