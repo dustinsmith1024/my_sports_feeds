@@ -95,6 +95,12 @@ iex(5)> MySportsFeeds.NFL.daily_player_stats("2016-09-11", %{force: true})
 
 # V2 Notes
 
+Make V2 have a couple layers.
+
+A simpler API layer for just doing the request/response parsing into structs.
+A genserver for populating a cache for `scoreboads` such.
+A set of helpers for common requests.
+
 https://api.mysportsfeeds.com/v2.0/pull/nba/2018-playoff/player_stats_totals.json
 
 https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/venues.json

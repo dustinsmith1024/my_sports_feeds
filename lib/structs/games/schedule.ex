@@ -4,7 +4,6 @@ defmodule MySportsFeeds.Entities.Games.Schedule do
 
   @derive [Poison.Encoder]
   defstruct [
-      atBats: nil, #0,
       id: nil, # 45944,
       week: nil, # 1,
       startTime: nil, # "2018-09-07T00:20:00.000Z",
