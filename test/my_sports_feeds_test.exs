@@ -70,10 +70,8 @@ defmodule MySportsFeedsTest do
   test "parse nfl games json to struct" do
     json_example = File.read!("./test/json_examples/nfl_games.json")
 
-    # IO.puts json_example
     {:ok, s} = Poison.decode(json_example, as: %Games{})
 
-    # IO.inspect s.seasonalPlayerStats.playerStatsTotals
     assert(length(s.games) == 256)
     %{schedule: schedule, score: score} = Enum.at(s.games, 0)
     assert(schedule.id == 43306 )
@@ -124,4 +122,28 @@ defmodule MySportsFeedsTest do
     assert(play.playDescription == "(14:19) (Shotgun) A.Smith pass deep right to K.Hunt for 78 yards, TOUCHDOWN.")
   end
 
+  test "list of plays and times from nfl boxscore" do
+    json_example = File.read!("./test/json_examples/nfl_boxscore.json")
+
+    {:ok, boxscore} = Poison.decode(json_example, as: %Boxscore{})
+    plays = Boxscore.boxscore_alerts(boxscore)
+    assert(length(plays) == 20)
+    assert(Enum.at(plays, 0).playDescription == "KC-NE 0-6 M.Gillislee up the middle for 2 yards, TOUCHDOWN.")
+    assert(Enum.at(plays, 1).playDescription == "KC-NE 0-7 S.Gostkowski extra point is GOOD, Center-J.Cardona, Holder-R.Allen.")
+    assert(Enum.at(plays, 2).playDescription == "KC-NE 6-7 (3:10) (Shotgun) A.Smith pass short right to D.Harris for 7 yards, TOUCHDOWN.")
+    assert(Enum.at(plays, 2).scoreChange == 6)
+    assert(Enum.at(plays, 2).awayScore == 6)
+    assert(Enum.at(plays, 2).homeScore == 7)
+    assert(Enum.at(plays, 2).quarterSecondsElapsed == 710)
+    assert(Enum.at(plays, 2).quarterNumber == 1)
+  end
+
+
+  test "game name shows away team first" do
+    json_example = File.read!("./test/json_examples/nfl_boxscore.json")
+
+    {:ok, boxscore} = Poison.decode(json_example, as: %Boxscore{})
+    plays = Boxscore.boxscore_alerts(boxscore)
+    assert(MySportsFeeds.Entities.Games.Schedule.game_name(boxscore.game) == "KC-NE")
+  end
 end

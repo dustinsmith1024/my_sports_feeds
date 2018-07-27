@@ -18,4 +18,7 @@ defmodule MySportsFeeds.Entities.Games.Schedule do
       playedStatus: nil, # "UNPLAYED"
   ]
 
+  def game_name(%MySportsFeeds.Entities.Games.Schedule{} = game) do
+    "#{game.awayTeam.abbreviation}-#{game.homeTeam.abbreviation}"
+  end
 end
