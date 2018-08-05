@@ -4,6 +4,9 @@ defmodule MySportsFeeds.V2.NFL do
   alias MySportsFeeds.Entities.Games
   alias MySportsFeeds.Entities.Boxscore
   alias MySportsFeeds.Entities.Lineup
+  alias MySportsFeeds.Entities.CurrentSeason
+  alias MySportsFeeds.Entities.Injuries
+  alias MySportsFeeds.Entities.TeamStatsTotals
 
   @moduledoc """
   API for National Football League (NFL).
@@ -458,20 +461,48 @@ defmodule MySportsFeeds.V2.NFL do
   end
 
 
-  def current_season() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/current_season.json?date=20171212"
+  # date is common here
+  # if you dont send a date then its today
+  def current_season(opts \\ %{}) do
+    # date = Map.get(opts, :date, "20171212") # TODO: Make today
+    # |> String.replace("-", "")
+
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/current_season.json?#{query_params}"
+    |> req(%CurrentSeason{})
   end
 
-  def injuries() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/injuries.json?team=NE"
+  # team=NE
+  def injuries(opts \\ %{}) do
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/injuries.json?#{query_params}"
+    |> req(%Injuries{})
   end
 
   def latest_updates() do
     "https://api.mysportsfeeds.com/v2.0/pull/nfl/latest/latest_updates.json"
   end
 
-  def team_stats_totals() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/team_stats_totals.json?team=KC"
+  def team_stats_totals(opts \\ %{}) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/team_stats_totals.json?#{query_params}"
+    |> req(%TeamStatsTotals{})
   end
 
   def player_stats_totals() do
@@ -616,34 +647,6 @@ defmodule MySportsFeeds.V2.NFL do
     "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/daily_dfs.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
-
-  @doc """
-  Grabs season with some details.
-
-  ## Examples:
-
-    iex(29)> MySportsFeeds.NFL.current_season("2017-01-03")
-    {:ok,
-    %{"currentseason" => %{"lastUpdatedOn" => "2017-04-22 10:28:05 PM",
-        "season" => [%{"details" => %{"endDate" => "2017-02-05",
-              "intervalType" => "playoff", "name" => "2017 Playoffs",
-              "slug" => "2017-playoff", "startDate" => "2017-01-07"},
-            "supportedPlayerStats" => %{"playerStat" => [%{"abbreviation" => "Att",
-                "category" => "Passing", "name" => "Pass Attempts"},
-              %{"abbreviation" => "Comp", "category" => "Passing",
-  """
-  def current_season(date, opts \\ %{}, ttl_seconds \\ 86_400) do
-    query_params = %{
-      force: "false",
-      fordate: String.replace(date, "-", ""),
-    }
-    |> Map.merge(opts)
-    |> URI.encode_query
-
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/current_season.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
-  end
-
 
   @doc """
   Fetch all active players regardless if they are on a roster or not.

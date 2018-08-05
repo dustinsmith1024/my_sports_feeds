@@ -1,6 +1,5 @@
 defmodule MySportsFeeds.Entities.Playbyplay do
   alias MySportsFeeds.Entities.Games.Schedule
-  alias MySportsFeeds.Entities.Game
   alias MySportsFeeds.Entities.Games.ScoringAlert
   alias MySportsFeeds.Entities.NFL.Play
 

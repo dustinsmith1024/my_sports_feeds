@@ -9,5 +9,6 @@ defmodule MySportsFeeds.Entities.Stats.Interceptions do
     stuffs: nil, #0,
     stuffYds: nil, #0,
     safeties: nil, #0
+    kB: nil, #1
   ]
 end

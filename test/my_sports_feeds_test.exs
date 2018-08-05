@@ -11,6 +11,9 @@ defmodule MySportsFeedsTest do
   alias MySportsFeeds.Entities.Boxscore
   alias MySportsFeeds.Entities.Playbyplay
   alias MySportsFeeds.Entities.Lineup
+  alias MySportsFeeds.Entities.CurrentSeason
+  alias MySportsFeeds.Entities.Injuries
+  alias MySportsFeeds.Entities.TeamStatsTotals
   # alias MySportsFeeds.Entities.PlayerStats
 
   test "the truth" do
@@ -33,6 +36,51 @@ defmodule MySportsFeedsTest do
     # "receiving": {
     #   "targets": 118,
     assert(stats.receiving.targets == 118)
+  end
+
+  test "parse nfl team stats json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_team_stats_totals.json")
+
+    # IO.puts json_example
+    {:ok, %TeamStatsTotals{teamStatsTotals: [teamStats | _ ]}} = Poison.decode(json_example, as: %TeamStatsTotals{})
+
+    # IO.inspect s.seasonalPlayerStats.playerStatsTotals
+    # assert(length(s.playerStatsTotals) == 62)
+    assert(teamStats.team.abbreviation == "KC")
+    assert(teamStats.stats.passing.qBRating == 100.8)
+    assert(teamStats.stats.passing.passAttempts == 543)
+    assert(teamStats.stats.rushing.rushLng == 504)
+    assert(teamStats.stats.receiving.recAverage == 11.9)
+    assert(teamStats.stats.tackles.tackleTotal == 921)
+    assert(teamStats.stats.interceptions.interceptions == 16)
+    assert(teamStats.stats.fumbles.fumForced == 13)
+    assert(teamStats.stats.kickoffReturns.krTD == 0)
+    assert(teamStats.stats.puntReturns.prTD == 1)
+    assert(teamStats.stats.fieldGoals.fgPct == 91.1)
+    assert(teamStats.stats.extraPointAttempt.xpMade == 40)
+    assert(teamStats.stats.kickoffs.koRetAvgYds == 20.7)
+    assert(teamStats.stats.punting.puntAvg == 45.6)
+    assert(teamStats.stats.miscellaneous.fourthDownsPct == 30)
+    assert(teamStats.stats.standings."Wins" == 10)
+    assert(teamStats.stats.standings."Losses" == 6)
+
+
+    # "gamesPlayed": 16,
+    #           },
+    #           "standings": {
+    #               "Wins": 10,
+    #               "Losses": 6,
+    #               "ties": 0,
+    #               "OTWins": 0,
+    #               "OTLosses": 1,
+    #               "WinPct": 0.625,
+    #               "pointsFor": 409,
+    #               "pointsAgainst": 337,
+    #               "pointDifferential": 72
+    #           },
+    #           "twoPointAttempts": {
+    #               "twoPtAtt": 2,
+    #               "twoPtMade": 0,
   end
 
   test "parse mlb stats json to struct" do
@@ -81,6 +129,30 @@ defmodule MySportsFeedsTest do
     [player2 | _] = team2.actual.lineupPositions
     assert(player1.player.firstName == "Jay")
     assert(player2.player.firstName == "Dion")
+  end
+
+  test "parse nfl current season json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_currentseason.json")
+
+    {:ok, %CurrentSeason{seasons: [season | _]}} = Poison.decode(json_example, as: %CurrentSeason{})
+    assert(season.name == "2017 Regular")
+    assert(season.slug == "2017-regular")
+    assert(season.startDate == "2017-09-08Z")
+    assert(season.endDate == "2017-12-31Z")
+    assert(season.seasonInterval == "REGULAR")
+  end
+
+
+  test "parse nfl injuries json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_injuries.json")
+
+    {:ok, %Injuries{players: [player | _]}} = Poison.decode(json_example, as: %Injuries{})
+    assert(player.id == 7602)
+    assert(player.firstName == "Alan")
+    assert(player.lastName == "Branch")
+    assert(player.jerseyNumber == 97)
+    assert(player.currentInjury.description == "knee")
+    assert(player.currentInjury.playingProbability == "QUESTIONABLE")
   end
 
   test "parse nfl games json to struct" do

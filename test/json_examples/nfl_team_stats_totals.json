@@ -46,15 +46,15 @@
                   "rushFumbles": 7
               },
               "receiving": {
-                  "receptions": 363,
-                  "recYards": 4326,
-                  "recAverage": 11.9,
-                  "recTD": 26,
-                  "recLng": 801,
                   "rec1stDowns": 198,
                   "rec20Plus": 54,
                   "rec40Plus": 14,
-                  "recFumbles": 0
+                  "recAverage": 11.9,
+                  "receptions": 363,
+                  "recFumbles": 0,
+                  "recLng": 801,
+                  "recTD": 26,
+                  "recYards": 4326
               },
               "tackles": {
                   "tackleSolo": 703,

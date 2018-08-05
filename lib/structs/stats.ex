@@ -12,6 +12,11 @@ defmodule MySportsFeeds.Entities.Stats do
   alias MySportsFeeds.Entities.Stats.PuntReturns
   alias MySportsFeeds.Entities.Stats.TwoPointAttempts
   alias MySportsFeeds.Entities.Stats.Miscellaneous
+  alias MySportsFeeds.Entities.Stats.Standings
+  alias MySportsFeeds.Entities.Stats.FieldGoals
+  alias MySportsFeeds.Entities.Stats.Punting
+  alias MySportsFeeds.Entities.Stats.ExtraPointAttempt
+  alias MySportsFeeds.Entities.Stats.Kickoffs
 
   @derive [Poison.Encoder]
   defstruct [
@@ -22,6 +27,11 @@ defmodule MySportsFeeds.Entities.Stats do
     fielding: %Fielding{}, #
     # NFL
     passing: %Passing{}, #
+    standings: %Standings{},
+    fieldGoals: %FieldGoals{},
+    extraPointAttempt: %ExtraPointAttempt{},
+    kickoffs: %Kickoffs{},
+    punting: %Punting{},
     rushing: %Rushing{}, #
     receiving: %Receiving{}, #
     tackles: %Tackles{}, #
