@@ -1,0 +1,239 @@
+{
+  "lastUpdatedOn": "2018-08-01T16:12:27.996Z",
+  "players": [
+      {
+          "id": 7602,
+          "firstName": "Alan",
+          "lastName": "Branch",
+          "position": "NT",
+          "jerseyNumber": 97,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "knee",
+              "playingProbability": "QUESTIONABLE"
+          },
+          "height": "6'6\"",
+          "weight": 350,
+          "birthDate": null,
+          "age": null,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 7599,
+          "firstName": "Malcom",
+          "lastName": "Brown",
+          "position": "DT",
+          "jerseyNumber": 90,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "foot",
+              "playingProbability": "QUESTIONABLE"
+          },
+          "height": "6'2\"",
+          "weight": 320,
+          "birthDate": "1994-02-02",
+          "age": 24,
+          "birthCity": "Brenham, TX",
+          "birthCountry": "USA",
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 7622,
+          "firstName": "Malcolm",
+          "lastName": "Butler",
+          "position": "CB",
+          "jerseyNumber": 21,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "flu",
+              "playingProbability": "PROBABLE"
+          },
+          "height": "5'11\"",
+          "weight": 190,
+          "birthDate": null,
+          "age": null,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 7629,
+          "firstName": "Nate",
+          "lastName": "Ebner",
+          "position": "DB",
+          "jerseyNumber": 43,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "knee",
+              "playingProbability": "QUESTIONABLE"
+          },
+          "height": "6'0\"",
+          "weight": 220,
+          "birthDate": null,
+          "age": null,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 9940,
+          "firstName": "Jonathan",
+          "lastName": "Jones",
+          "position": "CB",
+          "jerseyNumber": 31,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "foot",
+              "playingProbability": "QUESTIONABLE"
+          },
+          "height": "5'10\"",
+          "weight": 190,
+          "birthDate": "1993-09-20",
+          "age": 24,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 7632,
+          "firstName": "Brandon",
+          "lastName": "King",
+          "position": "DB",
+          "jerseyNumber": 36,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "knee",
+              "playingProbability": "PROBABLE"
+          },
+          "height": "6'2\"",
+          "weight": 220,
+          "birthDate": "1993-06-08",
+          "age": 25,
+          "birthCity": "Alabaster, AL",
+          "birthCountry": "USA",
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 7633,
+          "firstName": "Devin",
+          "lastName": "McCourty",
+          "position": "DB",
+          "jerseyNumber": 32,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "shoulder",
+              "playingProbability": "PROBABLE"
+          },
+          "height": "5'10\"",
+          "weight": 195,
+          "birthDate": null,
+          "age": null,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 6862,
+          "firstName": "LaAdrian",
+          "lastName": "Waddle",
+          "position": "OT",
+          "jerseyNumber": 68,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "knee",
+              "playingProbability": "QUESTIONABLE"
+          },
+          "height": "6'6\"",
+          "weight": 328,
+          "birthDate": "1991-07-21",
+          "age": 27,
+          "birthCity": "College Station, TX",
+          "birthCountry": "USA",
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      },
+      {
+          "id": 13084,
+          "firstName": "Deatrich",
+          "lastName": "Wise",
+          "position": "DE",
+          "jerseyNumber": 91,
+          "currentTeam": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "currentRosterStatus": "ROSTER",
+          "currentInjury": {
+              "description": "concussion",
+              "playingProbability": "PROBABLE"
+          },
+          "height": "6'5\"",
+          "weight": 271,
+          "birthDate": "1994-07-26",
+          "age": 24,
+          "birthCity": null,
+          "birthCountry": null,
+          "rookie": false,
+          "college": null,
+          "twitter": null,
+          "handedness": null
+      }
+  ]
+}

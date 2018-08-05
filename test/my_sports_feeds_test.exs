@@ -9,6 +9,8 @@ defmodule MySportsFeedsTest do
   alias MySportsFeeds.Entities.Player
   alias MySportsFeeds.Entities.Games
   alias MySportsFeeds.Entities.Boxscore
+  alias MySportsFeeds.Entities.Playbyplay
+  alias MySportsFeeds.Entities.Lineup
   # alias MySportsFeeds.Entities.PlayerStats
 
   test "the truth" do
@@ -67,6 +69,20 @@ defmodule MySportsFeedsTest do
     assert(injuredPlayer.currentInjury.playingProbability == "OUT")
   end
 
+  test "parse nfl lineups json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_lineup.json")
+
+    {:ok, lineup} = Poison.decode(json_example, as: %Lineup{})
+
+    assert(lineup.game.homeTeam.abbreviation == "NE")
+    assert(lineup.game.awayTeam.abbreviation == "PHI")
+    [team1, team2] = lineup.teamLineups
+    [player1 | _] = team1.actual.lineupPositions
+    [player2 | _] = team2.actual.lineupPositions
+    assert(player1.player.firstName == "Jay")
+    assert(player2.player.firstName == "Dion")
+  end
+
   test "parse nfl games json to struct" do
     json_example = File.read!("./test/json_examples/nfl_games.json")
 
@@ -120,6 +136,35 @@ defmodule MySportsFeedsTest do
     assert(q4.quarterNumber == 4)
     [play | _ ] = q4.scoringPlays
     assert(play.playDescription == "(14:19) (Shotgun) A.Smith pass deep right to K.Hunt for 78 yards, TOUCHDOWN.")
+  end
+
+  test "parse nfl playbyplay json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_playbyplay.json")
+
+    {:ok, s} = Poison.decode(json_example, as: %Playbyplay{})
+
+    %{game: game, plays: [play | [play2 | _] ]} = s
+    assert(game.id == 43426 )
+    assert(game.week == 22)
+    assert(game.venueAllegiance == "NEUTRAL")
+    assert(game.scheduleStatus == "NORMAL")
+    assert(game.originalStartTime == nil)
+    assert(game.delayedOrPostponedReason == nil)
+    assert(game.playedStatus == "COMPLETED")
+    assert(game.awayTeam.abbreviation == "PHI")
+    assert(game.homeTeam.abbreviation == "NE")
+    assert(game.venue.name == "Gillette Stadium")
+    assert(play.quarter == 1)
+    assert(play.secondsElapsed == 0)
+    assert(play.currentDown == 0)
+    assert(play.yardsRemaining == 0)
+    assert(play.lineOfScrimmage.team.abbreviation == "NE")
+    assert(play.lineOfScrimmage.yardLine == 35)
+    assert(play.description == "S.Gostkowski kicks 64 yards from NE 35 to PHI 1. C.Clement pushed ob at PHI 26 for 25 yards (P.Chung).")
+    assert(play2.description == "(14:54) N.Foles pass short right to N.Agholor to PHI 30 for 4 yards (K.Van Noy).")
+    assert(play2.pass.receivingPlayer.firstName == "Nelson")
+    assert(play2.pass.passingPlayer.firstName == "Nick")
+    assert(play2.pass.receivedAtPosition.yardLine == 31)
   end
 
   test "list of plays and times from nfl boxscore" do
