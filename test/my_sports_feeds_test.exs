@@ -1,8 +1,8 @@
 defmodule MySportsFeedsTest do
   use ExUnit.Case
   doctest MySportsFeeds
-  alias MySportsFeeds.Entities.SeasonalPlayerStatsRepsonse
   alias MySportsFeeds.Entities.SeasonalPlayerStats
+  alias MySportsFeeds.Entities.PlayerStatsTotals
   alias MySportsFeeds.Entities.PlayerStats
   alias MySportsFeeds.Entities.Team
   alias MySportsFeeds.Entities.Stats
@@ -14,6 +14,8 @@ defmodule MySportsFeedsTest do
   alias MySportsFeeds.Entities.CurrentSeason
   alias MySportsFeeds.Entities.Injuries
   alias MySportsFeeds.Entities.TeamStatsTotals
+  alias MySportsFeeds.Entities.TeamStandings
+  alias MySportsFeeds.Entities.FeedUpdates
   # alias MySportsFeeds.Entities.PlayerStats
 
   test "the truth" do
@@ -23,18 +25,13 @@ defmodule MySportsFeedsTest do
   test "parse nfl stats json to struct" do
     json_example = File.read!("./test/json_examples/nfl_player_stats_totals.json")
 
-    # IO.puts json_example
-    {:ok, s} = Poison.decode(json_example, as: %SeasonalPlayerStats{})
-
-    # IO.inspect s.seasonalPlayerStats.playerStatsTotals
-    assert(length(s.playerStatsTotals) == 62)
-    %{player: player, stats: stats, team: team} = Enum.at(s.playerStatsTotals, 0)
+    {:ok, %PlayerStatsTotals{playerStatsTotals: s} = pst} = Poison.decode(json_example, as: %PlayerStatsTotals{})
+    assert(length(pst.playerStatsTotals) == 62)
+    %{player: player, stats: stats, team: team} = Enum.at(pst.playerStatsTotals, 0)
     assert(player.id == 6924 )
     assert(player.firstName == "Davante")
     assert(player.lastName == "Adams")
     assert(team.abbreviation == "GB")
-    # "receiving": {
-    #   "targets": 118,
     assert(stats.receiving.targets == 118)
   end
 
@@ -63,33 +60,38 @@ defmodule MySportsFeedsTest do
     assert(teamStats.stats.miscellaneous.fourthDownsPct == 30)
     assert(teamStats.stats.standings."Wins" == 10)
     assert(teamStats.stats.standings."Losses" == 6)
+  end
 
+  test "parse nfl team standings json to struct" do
+    json_example = File.read!("./test/json_examples/nfl_standings.json")
 
-    # "gamesPlayed": 16,
-    #           },
-    #           "standings": {
-    #               "Wins": 10,
-    #               "Losses": 6,
-    #               "ties": 0,
-    #               "OTWins": 0,
-    #               "OTLosses": 1,
-    #               "WinPct": 0.625,
-    #               "pointsFor": 409,
-    #               "pointsAgainst": 337,
-    #               "pointDifferential": 72
-    #           },
-    #           "twoPointAttempts": {
-    #               "twoPtAtt": 2,
-    #               "twoPtMade": 0,
+    # IO.puts json_example
+    {:ok, %TeamStandings{teams: [teamStanding | _ ]}} = Poison.decode(json_example, as: %TeamStandings{})
+
+    # IO.inspect s.seasonalPlayerStats.playerStatsTotals
+    # assert(length(s.playerStatsTotals) == 62)
+    assert(teamStanding.team.abbreviation == "ARI")
+    assert(teamStanding.stats.passing.qBRating == 76.5)
+    assert(teamStanding.stats.rushing.rushAttempts == 408)
+    assert(teamStanding.overallRank.rank == 18)
+    assert(teamStanding.overallRank.gamesBack == 5)
+    assert(teamStanding.conferenceRank.conferenceName == "NFC")
+    assert(teamStanding.conferenceRank.rank == 10)
+    assert(teamStanding.conferenceRank.gamesBack == 5)
+    assert(teamStanding.divisionRank.divisionName == "NFC West")
+    assert(teamStanding.divisionRank.rank == 3)
+    assert(teamStanding.divisionRank.gamesBack == 3)
+
+    assert(teamStanding.playoffRank.conferenceName == "NFC")
+    assert(teamStanding.playoffRank.rank == 10)
+    assert(teamStanding.playoffRank.appliesTo == "CONFERENCE")
   end
 
   test "parse mlb stats json to struct" do
     json_example = File.read!("./test/json_examples/mlb_player_stats_totals.json")
 
-    # IO.puts json_example
-    {:ok, s} = Poison.decode(json_example, as: %SeasonalPlayerStats{})
-
-    # IO.inspect s.seasonalPlayerStats.playerStatsTotals
+    {:ok, %PlayerStatsTotals{} = s} = Poison.decode(json_example, as: %PlayerStatsTotals{})
+    # seasonalPlayerStats
     assert(length(s.playerStatsTotals) == 41)
     %{player: player, stats: stats, team: team} = Enum.at(s.playerStatsTotals, 0)
     assert(player.id == 14445 )
@@ -262,5 +264,27 @@ defmodule MySportsFeedsTest do
     {:ok, boxscore} = Poison.decode(json_example, as: %Boxscore{})
     plays = Boxscore.boxscore_alerts(boxscore)
     assert(MySportsFeeds.Entities.Games.Schedule.game_name(boxscore.game) == "KC-NE")
+  end
+
+  test "parse nfl latest updates to struct" do
+    json_example = File.read!("./test/json_examples/nfl_latest_updates.json")
+
+    {:ok, %FeedUpdates{feedUpdates: [feedUpdate | [feed2 | _] ] = feedUpdates}} = Poison.decode(json_example, as: %FeedUpdates{})
+    boxscoreUpdate = Enum.find(feedUpdates, fn(update) ->
+      update.feed.abbreviation == "GAME_BOXSCORE"
+    end)
+
+    [ firstGame | _ ] = boxscoreUpdate.forGames
+    assert(firstGame.lastUpdatedOn == "2018-07-19T20:38:12.000Z")
+    assert(firstGame.game.id == 40464)
+    assert(firstGame.game.week == 7)
+
+    assert(feedUpdate.feed.abbreviation == "SEASONAL_GAMES")
+    assert(feedUpdate.lastUpdatedOn == "2018-08-14T14:24:25.000Z")
+    assert(feed2.feed.abbreviation == "DAILY_GAMES")
+
+    [firstForDate | _] = feed2.forDates
+    assert(firstForDate.forDate == "2017-09-07Z")
+    assert(firstForDate.lastUpdatedOn == "2018-08-14T14:24:25.000Z")
   end
 end

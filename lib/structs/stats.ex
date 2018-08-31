@@ -18,6 +18,7 @@ defmodule MySportsFeeds.Entities.Stats do
   alias MySportsFeeds.Entities.Stats.ExtraPointAttempt
   alias MySportsFeeds.Entities.Stats.Kickoffs
 
+  # TODO: How to ignore these for the wrong sports?
   @derive [Poison.Encoder]
   defstruct [
     gamesPlayed: nil, # 2,

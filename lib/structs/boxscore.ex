@@ -11,11 +11,6 @@ defmodule MySportsFeeds.Entities.Boxscore do
     scoring: %Score{},
   ]
 
-  # away-home
-  def game_score(score) do
-    "#{score.awayScore}-#{score.homeScore}"
-  end
-
   def boxscore_alerts(%MySportsFeeds.Entities.Boxscore{game: game, scoring: score}) do
     Enum.flat_map(score.quarters, fn(quarter) ->
       Enum.map(quarter.scoringPlays, fn(play) ->
@@ -33,4 +28,10 @@ defmodule MySportsFeeds.Entities.Boxscore do
       end)
     end)
   end
+
+  # away-home
+  defp game_score(score) do
+    "#{score.awayScore}-#{score.homeScore}"
+  end
+
 end

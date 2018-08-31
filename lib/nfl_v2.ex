@@ -7,6 +7,11 @@ defmodule MySportsFeeds.V2.NFL do
   alias MySportsFeeds.Entities.CurrentSeason
   alias MySportsFeeds.Entities.Injuries
   alias MySportsFeeds.Entities.TeamStatsTotals
+  alias MySportsFeeds.Entities.PlayerStatsTotals
+  alias MySportsFeeds.Entities.Venues
+  alias MySportsFeeds.Entities.Players
+  alias MySportsFeeds.Entities.TeamStandings
+  alias MySportsFeeds.Entities.FeedUpdates
 
   @moduledoc """
   API for National Football League (NFL).
@@ -251,15 +256,28 @@ defmodule MySportsFeeds.V2.NFL do
     |> Request.cached_get(ttl_seconds)
   end
 
-  # change name to player_stats_totals?
-  def seasonal_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
-    query_params = %{force: "false", team: "GB"}
+  @doc """
+  Player stat totals for the season.
+
+  https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=GB
+  https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=KC&player=kareem-hunt"
+
+  Examples:
+
+    iex(2)> MySportsFeeds.V2.NFL.player_stats_totals(%{team: "KC", season: "2017-regular"})
+  """
+
+  def player_stats_totals(opts \\ %{}) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
     |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
     |> URI.encode_query
 
-    # https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=GB
     "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
+    |> req(%PlayerStatsTotals{})
   end
 
   @doc """
@@ -424,6 +442,10 @@ defmodule MySportsFeeds.V2.NFL do
     |> req(%Boxscore{})
   end
 
+  def boxscore(game_id) do
+    boxscore(%{game: game_id})
+  end
+
   def player_gamelogs() do
     "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/week/15/player_gamelogs.json?team=KC"
   end
@@ -488,8 +510,18 @@ defmodule MySportsFeeds.V2.NFL do
     |> req(%Injuries{})
   end
 
-  def latest_updates() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/latest/latest_updates.json"
+  def latest_updates(opts \\ %{}) do
+    season = Map.get(opts, :season, "2017-regular")
+    query_params = %{
+      force: "true",
+      version: "v2_0",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/latest_updates.json?#{query_params}"
+    |> req(%FeedUpdates{})
   end
 
   def team_stats_totals(opts \\ %{}) do
@@ -505,21 +537,52 @@ defmodule MySportsFeeds.V2.NFL do
     |> req(%TeamStatsTotals{})
   end
 
-  def player_stats_totals() do
-    # team not needed, but its a good option
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=KC&player=kareem-hunt"
+  @doc """
+  Team venues with home team.
+
+  Examples:
+    iex(2)> MySportsFeeds.V2.NFL.venues
+  """
+  def venues(), do: venues(%{})
+  def venues(%{} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/venues.json?#{query_params}"
+    |> req(%Venues{})
   end
 
-  def venues() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-regular/venues.json"
+  @doc """
+  rosterstatus={list-of-roster-statuses} (filter roster statuses)
+
+  """
+  def players(), do: players(%{})
+  def players(%{} = opts) do
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/players.json?#{query_params}"
+    |> req(%Players{})
   end
 
-  def players() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/players.json?team=KC"
-  end
+  def standings(), do: standings(%{})
+  def standings(%{} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
 
-  def standings() do
-    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/standings.json"
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/standings.json?#{query_params}"
+    |> req(%TeamStandings{})
   end
 
   def req(url, struct) do
@@ -722,32 +785,4 @@ defmodule MySportsFeeds.V2.NFL do
     "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/playoff_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
-
-  @doc """
-  Status updates about the MySportsFeeds API and when each route was last updated.
-
-  ## Examples:
-
-    iex(40)> {s, p} = MySportsFeeds.NFL.latest_updates
-      {:ok,
-      %{"latestupdates" => %{"feedentry" => [%{"feed" => %{"Abbreviation" => "CUMULATIVE_PLAYER_STATS",
-                "Description" => "A list of player stats totals for all roster players, summarized by their latest team.",
-                "Name" => "Cumulative Player Stats"},
-              "lastUpdatedOn" => "2017-02-05 11:33:03 PM"},
-            %{"feed" => %{"Abbreviation" => "FULL_GAME_SCHEDULE",
-                "Description" => "A list of all games to be played for the entire season.",
-                "Name" => "Full Game Schedule"},
-              "lastUpdatedOn" => "2017-01-24 2:59:35 AM"},
-  """
-  def latest_updates(season \\ "latest", opts \\ %{}, ttl_seconds \\ 60) do
-    query_params = %{
-      force: "false",
-    }
-    |> Map.merge(opts)
-    |> URI.encode_query
-
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/latest_updates.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
-  end
-
 end

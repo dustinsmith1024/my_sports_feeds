@@ -36,7 +36,7 @@ defmodule MySportsFeeds.Mixfile do
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:httpoison, "~> 0.11.2"},
       {:poison, "~> 3.1"},
-      {:cachex, "~> 2.1"},
+      {:cachex, "~> 3.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:credo, "~> 0.7", only: [:dev, :test]},
     ]

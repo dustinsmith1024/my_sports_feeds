@@ -15,9 +15,26 @@ defmodule MySportsFeeds.Entities.Games.Schedule do
       originalStartTime: nil, # null,
       delayedOrPostponedReason: nil, # null,
       playedStatus: nil, # "UNPLAYED"
+      attendance: nil,
   ]
 
   def game_name(%MySportsFeeds.Entities.Games.Schedule{} = game) do
     "#{game.awayTeam.abbreviation}-#{game.homeTeam.abbreviation}"
+  end
+
+  # (game date as YYYYMMDD) + "-" +
+  # (away team abbreviation) + "-" +
+  # (home team abbreviation)
+  def id(%__MODULE__{} = game) do
+    # IO.inspect(game)
+    IO.inspect game
+    date = String.split(game.schedule.startTime, "T")
+    |> hd
+    |> String.replace("-", "")
+
+    awayTeam = game.schedule.awayTeam.abbreviation
+    homeTeam = game.schedule.homeTeam.abbreviation
+
+    "#{date}-#{awayTeam}-#{homeTeam}"
   end
 end

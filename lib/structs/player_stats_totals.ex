@@ -1,4 +1,4 @@
-defmodule MySportsFeeds.Entities.SeasonalPlayerStats do
+defmodule MySportsFeeds.Entities.PlayerStatsTotals do
   alias MySportsFeeds.Entities.PlayerStats
 
   @derive [Poison.Encoder]
