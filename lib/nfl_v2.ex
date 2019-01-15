@@ -1,6 +1,17 @@
-defmodule MySportsFeeds.NFL do
+defmodule MySportsFeeds.V2.NFL do
   require Logger
   alias MySportsFeeds.Request
+  alias MySportsFeeds.Entities.Games
+  alias MySportsFeeds.Entities.Boxscore
+  alias MySportsFeeds.Entities.Lineup
+  alias MySportsFeeds.Entities.CurrentSeason
+  alias MySportsFeeds.Entities.Injuries
+  alias MySportsFeeds.Entities.TeamStatsTotals
+  alias MySportsFeeds.Entities.PlayerStatsTotals
+  alias MySportsFeeds.Entities.Venues
+  alias MySportsFeeds.Entities.Players
+  alias MySportsFeeds.Entities.TeamStandings
+  alias MySportsFeeds.Entities.FeedUpdates
 
   @moduledoc """
   API for National Football League (NFL).
@@ -245,35 +256,58 @@ defmodule MySportsFeeds.NFL do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Player stat totals for the season.
 
-  def seasonal_player_stats(season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
-    query_params = %{force: "false", team: "GB"}
+  https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=GB
+  https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=KC&player=kareem-hunt"
+
+  Examples:
+
+    iex(2)> MySportsFeeds.V2.NFL.player_stats_totals(%{team: "KC", season: "2017-regular"})
+  """
+
+  def player_stats_totals(opts \\ %{}) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
     |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
     |> URI.encode_query
 
-    # https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/player_stats_totals.json?team=GB
     "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
+    |> req(%PlayerStatsTotals{})
   end
 
   @doc """
   Gets the schedule for the season.
 
-  iex(20)> {status, stats} = MySportsFeeds.NFL.full_game_schedule
-  iex(18)> stats["fullgameschedule"]["gameentry"] |> hd
-  %{"awayTeam" => %{"Abbreviation" => "OAK", "City" => "Oakland", "ID" => "74",
-      "Name" => "Raiders"}, "date" => "2017-01-07",
-    "homeTeam" => %{"Abbreviation" => "HOU", "City" => "Houston", "ID" => "64",
-      "Name" => "Texans"}, "id" => "37730", "location" => "NRG Stadium",
-    "time" => "4:35PM"}
+  iex(2)> MySportsFeeds.V2.NFL.games()
+  iex(2)> MySportsFeeds.V2.NFL.games(%{date: "20180204"})
+  iex(2)> MySportsFeeds.V2.NFL.games(%{date: "20180204", force: false})
   """
-  def full_game_schedule(season \\ "latest", opts \\ %{}, ttl_seconds \\ 86_400) do
-    query_params = %{force: "false"}
+  def games(opts \\ %{}) do
+    season = Map.get(opts, :season, "latest")
+    date = Map.get(opts, :date, "") |> String.replace("-", "")
+    query_params = %{
+      force: "true",
+    }
     |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> Map.delete(:date)
     |> URI.encode_query
 
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/full_game_schedule.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
+    # Append a day for filtering,  i think it would work as a query param tho
+    season_date = case date do
+      "" -> season
+      nil -> season
+      day when is_bitstring(day) ->
+        "#{season}/date/#{day}"
+    end
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season_date}/games.json?#{query_params}"
+    |> req(%Games{})
   end
 
   @doc """
@@ -342,58 +376,228 @@ defmodule MySportsFeeds.NFL do
     |> Request.cached_get(ttl_seconds)
   end
 
+  @doc """
+  Get the boxscore for a game
+
+  iex(5)> {:ok, box} = MySportsFeeds.V2.NFL.playbyplay(%{game: "20180204-PHI-NE"})
+
+  # Get just the scoring plays
+  iex(5)> MySportsFeeds.Entities.Boxscore.boxscore_alerts(box)
+  """
+  def playbyplay(%{game: game} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> Map.delete(:game)
+    |> URI.encode_query
+
+    # Append a day for filtering,  i think it would work as a query param tho
+    season_game = case game do
+      "" -> season
+      nil -> season
+      game_id when is_bitstring(game_id) ->
+        "#{season}/games/#{game_id}"
+    end
+
+    case Request.raw_get("https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season_game}/playbyplay.json?#{query_params}") do
+      {:ok, false} ->
+        Logger.debug("probably cached...")
+        {:ok, false}
+      {:ok, games} ->
+        Poison.decode(games, as: %Boxscore{})
+      some_error -> some_error
+    end
+  end
 
   @doc """
-  Box Score for the game. Includes all scoring plays.
+  Get the boxscore for a game
 
-  ## Examples:
+  iex(5)> {:ok, box} = MySportsFeeds.V2.NFL.boxscore(%{game: "20180204-PHI-NE"})
 
-
-      iex(32)> {status, stats} = MySportsFeeds.NFL.game_boxscore("20160911-NE-ARI", "2016-2017-regular", %{force: true})
-      iex(37)> stats["gameboxscore"]["quarterSummary"]
-      %{"quarter" => [%{"@number" => "1", "awayScore" => "10", "homeScore" => "0",
-          "scoring" => %{"scoringPlay" => [%{"playDescription" => "(7:42) J.Garoppolo pass deep left to C.Hogan for 37 yards, TOUCHDOWN.",
-                "teamAbbreviation" => "NE", "time" => "7:18"},
-              %{"playDescription" => "S.Gostkowski extra point is GOOD, Center-J.Cardona, Holder-R.Allen.",
-                "teamAbbreviation" => "NE", "time" => "7:26"},
-              %{"playDescription" => "(1:05) S.Gostkowski 47 yard field goal is GOOD, Center-J.Cardona, Holder-R.Allen.",
-                "teamAbbreviation" => "NE", "time" => "13:55"}]}},
-        %{"@number" => "2", "awayScore" => "0", "homeScore" => "7",
-          "scoring" => %{"scoringPlay" => [%{"playDescription" => "(4:10) (Shotgun) C.Palmer pass short left to L.Fitzgerald for 3 yards, TOUCHDOWN.",
-                "teamAbbreviation" => "ARI", "time" => "10:50"},
-              %{"playDescription" => "C.Catanzaro extra point is GOOD, Center-K.Canaday, Holder-D.Butler.",
-                "teamAbbreviation" => "ARI", "time" => "10:54"}]}},
-        %{"@number" => "3", "awayScore" => "7", "homeScore" => "7",
-          "scoring" => %{"scoringPlay" => [%{"playDescription" => "(10:08) (Shotgun) L.Blount up the middle for 8 yards, TOUCHDOWN.",
-                "teamAbbreviation" => "NE", "time" => "4:52"},
-              %{"playDescription" => "S.Gostkowski extra point is GOOD, Center-J.Cardona, Holder-R.Allen.",
-                "teamAbbreviation" => "NE", "time" => "5:00"},
-              %{"playDescription" => "(4:33) (No Huddle) D.Johnson up the middle for 1 yard, TOUCHDOWN. Penalty on NE, Defensive 12 On-field, declined.",
-                "teamAbbreviation" => "ARI", "time" => "10:27"},
-              %{"playDescription" => "C.Catanzaro extra point is GOOD, Center-K.Canaday, Holder-D.Butler.",
-                "teamAbbreviation" => "ARI", "time" => "10:31"}]}},
-        %{"@number" => "4", "awayScore" => "6", "homeScore" => "7",
-          "scoring" => %{"scoringPlay" => [%{"playDescription" => "(12:40) S.Gostkowski 53 yard field goal is GOOD, Center-J.Cardona, Holder-R.Allen.",
-                "teamAbbreviation" => "NE", "time" => "2:20"},
-              %{"playDescription" => "(9:51) (Shotgun) C.Palmer pass short left to L.Fitzgerald for 1 yard, TOUCHDOWN.",
-                "teamAbbreviation" => "ARI", "time" => "5:09"},
-              %{"playDescription" => "C.Catanzaro extra point is GOOD, Center-K.Canaday, Holder-D.Butler. PENALTY on NE-J.Collins, Leaping, 15 yards, enforced between downs.",
-                "teamAbbreviation" => "ARI", "time" => "5:14"},
-              %{"playDescription" => "(3:48) S.Gostkowski 32 yard field goal is GOOD, Center-J.Cardona, Holder-R.Allen.",
-                "teamAbbreviation" => "NE", "time" => "11:12"}]}}],
-        "quarterTotals" => %{"awayScore" => "23", "homeScore" => "21"}}
+  # Get just the scoring plays
+  iex(5)> MySportsFeeds.Entities.Boxscore.boxscore_alerts(box)
   """
-  def game_boxscore(game, season \\ "latest", opts \\ %{}, ttl_seconds \\ 3_600) do
+  def boxscore(%{game: game} = opts) do
+    season = Map.get(opts, :season, "latest")
     query_params = %{
-      force: "false",
-      gameid: game,
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> Map.delete(:game)
+    |> URI.encode_query
+
+    # Append a day for filtering,  i think it would work as a query param tho
+    season_game = case game do
+      "" -> season
+      nil -> season
+      game_id when is_bitstring(game_id) ->
+        "#{season}/games/#{game_id}"
+    end
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season_game}/boxscore.json?#{query_params}"
+    |> req(%Boxscore{})
+  end
+
+  def boxscore(game_id) do
+    boxscore(%{game: game_id})
+  end
+
+  def player_gamelogs() do
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/week/15/player_gamelogs.json?team=KC"
+  end
+
+  def dfs() do
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/week/15/dfs.json?team=KC"
+  end
+
+  def team_gamelogs() do
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/2017-regular/week/15/team_gamelogs.json?team=KC"
+  end
+
+  # "https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-playoffs/games/20180204-PHI-NE/lineup.json"
+  # {:ok, lineup} = MySportsFeeds.V2.NFL.lineup(%{game: "20180204-PHI-NE"})
+  def lineup(%{game: game} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> Map.delete(:game)
+    |> URI.encode_query
+
+    # Append a day for filtering,  i think it would work as a query param tho
+    season_game = case game do
+      "" -> season
+      nil -> season
+      game_id when is_bitstring(game_id) ->
+        "#{season}/games/#{game_id}"
+    end
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season_game}/lineup.json?#{query_params}"
+    |> req(%Lineup{})
+  end
+
+
+  # date is common here
+  # if you dont send a date then its today
+  def current_season(opts \\ %{}) do
+    # date = Map.get(opts, :date, "20171212") # TODO: Make today
+    # |> String.replace("-", "")
+
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/current_season.json?#{query_params}"
+    |> req(%CurrentSeason{})
+  end
+
+  # team=NE
+  def injuries(opts \\ %{}) do
+    query_params = %{
+      force: "true",
     }
     |> Map.merge(opts)
     |> URI.encode_query
 
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/game_boxscore.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/injuries.json?#{query_params}"
+    |> req(%Injuries{})
   end
+
+  def latest_updates(opts \\ %{}) do
+    season = Map.get(opts, :season, "2017-regular")
+    query_params = %{
+      force: "true",
+      version: "v2_0",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/latest_updates.json?#{query_params}"
+    |> req(%FeedUpdates{})
+  end
+
+  def team_stats_totals(opts \\ %{}) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/team_stats_totals.json?#{query_params}"
+    |> req(%TeamStatsTotals{})
+  end
+
+  @doc """
+  Team venues with home team.
+
+  Examples:
+    iex(2)> MySportsFeeds.V2.NFL.venues
+  """
+  def venues(), do: venues(%{})
+  def venues(%{} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/venues.json?#{query_params}"
+    |> req(%Venues{})
+  end
+
+  @doc """
+  rosterstatus={list-of-roster-statuses} (filter roster statuses)
+
+  """
+  def players(), do: players(%{})
+  def players(%{} = opts) do
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> URI.encode_query
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/players.json?#{query_params}"
+    |> req(%Players{})
+  end
+
+  def standings(), do: standings(%{})
+  def standings(%{} = opts) do
+    season = Map.get(opts, :season, "latest")
+    query_params = %{
+      force: "true",
+    }
+    |> Map.merge(opts)
+    |> Map.delete(:season) # we probably dont have to delete these but its safer
+    |> URI.encode_query
+
+    "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/standings.json?#{query_params}"
+    |> req(%TeamStandings{})
+  end
+
+  def req(url, struct) do
+    case Request.raw_get(url) do
+      {:ok, false} ->
+        Logger.debug("probably cached...")
+        {:ok, false}
+      {:ok, games} ->
+        Poison.decode(games, as: struct)
+      some_error -> some_error
+    end
+  end
+  # def boxscore(opts \\ %{}) do
+  #   Logger.warn "Send in a game"
+  # end
 
   @doc """
   Get scores of all games on a day.
@@ -508,34 +712,6 @@ defmodule MySportsFeeds.NFL do
   end
 
   @doc """
-  Grabs season with some details.
-
-  ## Examples:
-
-    iex(29)> MySportsFeeds.NFL.current_season("2017-01-03")
-    {:ok,
-    %{"currentseason" => %{"lastUpdatedOn" => "2017-04-22 10:28:05 PM",
-        "season" => [%{"details" => %{"endDate" => "2017-02-05",
-              "intervalType" => "playoff", "name" => "2017 Playoffs",
-              "slug" => "2017-playoff", "startDate" => "2017-01-07"},
-            "supportedPlayerStats" => %{"playerStat" => [%{"abbreviation" => "Att",
-                "category" => "Passing", "name" => "Pass Attempts"},
-              %{"abbreviation" => "Comp", "category" => "Passing",
-  """
-  def current_season(date, opts \\ %{}, ttl_seconds \\ 86_400) do
-    query_params = %{
-      force: "false",
-      fordate: String.replace(date, "-", ""),
-    }
-    |> Map.merge(opts)
-    |> URI.encode_query
-
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/current_season.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
-  end
-
-
-  @doc """
   Fetch all active players regardless if they are on a roster or not.
 
   ## Examples:
@@ -609,32 +785,4 @@ defmodule MySportsFeeds.NFL do
     "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/playoff_team_standings.json?#{query_params}"
     |> Request.cached_get(ttl_seconds)
   end
-
-  @doc """
-  Status updates about the MySportsFeeds API and when each route was last updated.
-
-  ## Examples:
-
-    iex(40)> {s, p} = MySportsFeeds.NFL.latest_updates
-      {:ok,
-      %{"latestupdates" => %{"feedentry" => [%{"feed" => %{"Abbreviation" => "CUMULATIVE_PLAYER_STATS",
-                "Description" => "A list of player stats totals for all roster players, summarized by their latest team.",
-                "Name" => "Cumulative Player Stats"},
-              "lastUpdatedOn" => "2017-02-05 11:33:03 PM"},
-            %{"feed" => %{"Abbreviation" => "FULL_GAME_SCHEDULE",
-                "Description" => "A list of all games to be played for the entire season.",
-                "Name" => "Full Game Schedule"},
-              "lastUpdatedOn" => "2017-01-24 2:59:35 AM"},
-  """
-  def latest_updates(season \\ "latest", opts \\ %{}, ttl_seconds \\ 60) do
-    query_params = %{
-      force: "false",
-    }
-    |> Map.merge(opts)
-    |> URI.encode_query
-
-    "https://api.mysportsfeeds.com/v1.2/pull/nfl/#{season}/latest_updates.json?#{query_params}"
-    |> Request.cached_get(ttl_seconds)
-  end
-
 end

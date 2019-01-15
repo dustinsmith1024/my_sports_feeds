@@ -22,8 +22,8 @@ defmodule MySportsFeeds.Request do
     case cached_val do
         {:ok, v} when is_nil(v) == false -> v # Use cache
         {_, _} -> # {:error/:missing/:false, nil}
-            force_url = String.replace(url, "force=false", "force=true")
-            res = get(force_url)
+            # force_url = String.replace(url, "force=false", "force=true")
+            res = get(url)
 
             cache(url, res, ttl_seconds)
 
@@ -39,7 +39,7 @@ defmodule MySportsFeeds.Request do
 
   def cache(key, val, ttl_seconds) do
       Task.async(fn ->
-        key = clean_cache_key(key)
+        # key = clean_cache_key(key)
         Cachex.set(:app_cache, key, val, ttl: :timer.seconds(ttl_seconds))
       end)
   end
@@ -56,10 +56,14 @@ defmodule MySportsFeeds.Request do
   end
 
   def get(url) do
-    url |> raw_get |> handle
+    url |> fetch |> handle
   end
 
   def raw_get(url) do
+    url |> fetch |> raw_handle
+  end
+
+  def fetch(url) do
     Logger.info fn -> "Go for URL: #{url}" end
     HTTPoison.get!(url, headers(), timeout: 600_000, recv_timeout: 60_000)
   end
@@ -75,6 +79,26 @@ defmodule MySportsFeeds.Request do
       # Can make an option to pass back 'raw' if wanted
       Logger.info "Got results...parsing"
       parse(response)
+    404 ->
+      Logger.info "Route not found, check query params"
+      {:error, "Not found"}
+    other ->
+      Logger.debug "#{inspect response}"
+      {:error, other}
+    end
+  end
+
+  def raw_handle(response) do
+    # TODO: Put in a timer log message
+    case response.status_code do
+    304 ->
+      Logger.info "No new info found"
+      {:ok, false}
+    200 ->
+      # TODO: Make a formatted response handler here.
+      # Can make an option to pass back 'raw' if wanted
+      Logger.info "Got results...parsing"
+      {:ok, response.body}
     404 ->
       Logger.info "Route not found, check query params"
       {:error, "Not found"}

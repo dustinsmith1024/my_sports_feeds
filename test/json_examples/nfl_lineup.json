@@ -1,0 +1,2247 @@
+{
+  "lastUpdatedOn": "2018-08-05T02:04:53.127Z",
+  "game": {
+      "id": 43426,
+      "week": 22,
+      "startTime": "2018-02-04T23:30:00.000Z",
+      "awayTeam": {
+          "id": 54,
+          "abbreviation": "PHI"
+      },
+      "homeTeam": {
+          "id": 50,
+          "abbreviation": "NE"
+      },
+      "venue": {
+          "id": 61,
+          "name": "Gillette Stadium"
+      },
+      "venueAllegiance": "NEUTRAL",
+      "scheduleStatus": "NORMAL",
+      "originalStartTime": null,
+      "delayedOrPostponedReason": null,
+      "playedStatus": "COMPLETED"
+  },
+  "teamLineups": [
+      {
+          "team": {
+              "id": 54,
+              "abbreviation": "PHI"
+          },
+          "expected": {
+              "lineupPositions": [
+                  {
+                      "position": "Offense-RB-1",
+                      "player": {
+                          "id": 7369,
+                          "firstName": "Jay",
+                          "lastName": "Ajayi",
+                          "position": "RB",
+                          "jerseyNumber": 23
+                      }
+                  },
+                  {
+                      "position": "Offense-C",
+                      "player": {
+                          "id": 8036,
+                          "firstName": "Jason",
+                          "lastName": "Kelce",
+                          "position": "C",
+                          "jerseyNumber": 62
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-3",
+                      "player": {
+                          "id": 13272,
+                          "firstName": "Corey",
+                          "lastName": "Clement",
+                          "position": "RB",
+                          "jerseyNumber": 30
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-2",
+                      "player": {
+                          "id": 7552,
+                          "firstName": "LeGarrette",
+                          "lastName": "Blount",
+                          "position": "RB",
+                          "jerseyNumber": 35
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-2",
+                      "player": {
+                          "id": 8031,
+                          "firstName": "Brent",
+                          "lastName": "Celek",
+                          "position": "TE",
+                          "jerseyNumber": 87
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-1",
+                      "player": {
+                          "id": 8032,
+                          "firstName": "Zach",
+                          "lastName": "Ertz",
+                          "position": "TE",
+                          "jerseyNumber": 86
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DE-1",
+                      "player": {
+                          "id": 8053,
+                          "firstName": "Vinny",
+                          "lastName": "Curry",
+                          "position": "DE",
+                          "jerseyNumber": 75
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-1",
+                      "player": {
+                          "id": 8049,
+                          "firstName": "Jason",
+                          "lastName": "Peters",
+                          "position": "OT",
+                          "jerseyNumber": 71
+                      }
+                  },
+                  {
+                      "position": "Defense-DT-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-1",
+                      "player": {
+                          "id": 6166,
+                          "firstName": "Timmy",
+                          "lastName": "Jernigan",
+                          "position": "DT",
+                          "jerseyNumber": 97
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-1",
+                      "player": {
+                          "id": 8463,
+                          "firstName": "Nick",
+                          "lastName": "Foles",
+                          "position": "QB",
+                          "jerseyNumber": 9
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-2",
+                      "player": null
+                  },
+                  {
+                      "position": "SpecialTeams-K-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-1",
+                      "player": {
+                          "id": 8067,
+                          "firstName": "Najee",
+                          "lastName": "Goode",
+                          "position": "LB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "SpecialTeams-K-1",
+                      "player": {
+                          "id": 12837,
+                          "firstName": "Jake",
+                          "lastName": "Elliott",
+                          "position": "K",
+                          "jerseyNumber": 3
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-4",
+                      "player": {
+                          "id": 13280,
+                          "firstName": "Mack",
+                          "lastName": "Hollins",
+                          "position": "WR",
+                          "jerseyNumber": 10
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-3",
+                      "player": {
+                          "id": 8394,
+                          "firstName": "Torrey",
+                          "lastName": "Smith",
+                          "position": "WR",
+                          "jerseyNumber": 82
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-2",
+                      "player": {
+                          "id": 8072,
+                          "firstName": "Mychal",
+                          "lastName": "Kendricks",
+                          "position": "LB",
+                          "jerseyNumber": 95
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-NT",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-2",
+                      "player": {
+                          "id": 8019,
+                          "firstName": "Nelson",
+                          "lastName": "Agholor",
+                          "position": "WR",
+                          "jerseyNumber": 17
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-1",
+                      "player": {
+                          "id": 6386,
+                          "firstName": "Alshon",
+                          "lastName": "Jeffery",
+                          "position": "WR",
+                          "jerseyNumber": 17
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-2",
+                      "player": {
+                          "id": 6275,
+                          "firstName": "Ronald",
+                          "lastName": "Darby",
+                          "position": "CB",
+                          "jerseyNumber": 28
+                      }
+                  },
+                  {
+                      "position": "Offense-G-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-1",
+                      "player": {
+                          "id": 8543,
+                          "firstName": "Rodney",
+                          "lastName": "McLeod",
+                          "position": "DB",
+                          "jerseyNumber": 23
+                      }
+                  },
+                  {
+                      "position": "Offense-G-1",
+                      "player": {
+                          "id": 13278,
+                          "firstName": "Darrell",
+                          "lastName": "Greene",
+                          "position": "G",
+                          "jerseyNumber": 78
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-G-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-S-1",
+                      "player": {
+                          "id": 8087,
+                          "firstName": "Chris",
+                          "lastName": "Maragos",
+                          "position": "FS",
+                          "jerseyNumber": 42
+                      }
+                  },
+                  {
+                      "position": "Defense-S-2",
+                      "player": null
+                  }
+              ]
+          },
+          "actual": {
+              "lineupPositions": [
+                  {
+                      "position": "Offense-RB-1",
+                      "player": {
+                          "id": 7369,
+                          "firstName": "Jay",
+                          "lastName": "Ajayi",
+                          "position": "RB",
+                          "jerseyNumber": 23
+                      }
+                  },
+                  {
+                      "position": "Offense-C",
+                      "player": {
+                          "id": 8036,
+                          "firstName": "Jason",
+                          "lastName": "Kelce",
+                          "position": "C",
+                          "jerseyNumber": 62
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-3",
+                      "player": {
+                          "id": 13272,
+                          "firstName": "Corey",
+                          "lastName": "Clement",
+                          "position": "RB",
+                          "jerseyNumber": 30
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-2",
+                      "player": {
+                          "id": 7552,
+                          "firstName": "LeGarrette",
+                          "lastName": "Blount",
+                          "position": "RB",
+                          "jerseyNumber": 35
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-2",
+                      "player": {
+                          "id": 8031,
+                          "firstName": "Brent",
+                          "lastName": "Celek",
+                          "position": "TE",
+                          "jerseyNumber": 87
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-1",
+                      "player": {
+                          "id": 8032,
+                          "firstName": "Zach",
+                          "lastName": "Ertz",
+                          "position": "TE",
+                          "jerseyNumber": 86
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DE-1",
+                      "player": {
+                          "id": 8053,
+                          "firstName": "Vinny",
+                          "lastName": "Curry",
+                          "position": "DE",
+                          "jerseyNumber": 75
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-1",
+                      "player": {
+                          "id": 8049,
+                          "firstName": "Jason",
+                          "lastName": "Peters",
+                          "position": "OT",
+                          "jerseyNumber": 71
+                      }
+                  },
+                  {
+                      "position": "Defense-DT-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-1",
+                      "player": {
+                          "id": 6166,
+                          "firstName": "Timmy",
+                          "lastName": "Jernigan",
+                          "position": "DT",
+                          "jerseyNumber": 97
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-1",
+                      "player": {
+                          "id": 8463,
+                          "firstName": "Nick",
+                          "lastName": "Foles",
+                          "position": "QB",
+                          "jerseyNumber": 9
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-2",
+                      "player": null
+                  },
+                  {
+                      "position": "SpecialTeams-K-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-1",
+                      "player": {
+                          "id": 8067,
+                          "firstName": "Najee",
+                          "lastName": "Goode",
+                          "position": "LB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "SpecialTeams-K-1",
+                      "player": {
+                          "id": 12837,
+                          "firstName": "Jake",
+                          "lastName": "Elliott",
+                          "position": "K",
+                          "jerseyNumber": 3
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-4",
+                      "player": {
+                          "id": 13280,
+                          "firstName": "Mack",
+                          "lastName": "Hollins",
+                          "position": "WR",
+                          "jerseyNumber": 10
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-3",
+                      "player": {
+                          "id": 8394,
+                          "firstName": "Torrey",
+                          "lastName": "Smith",
+                          "position": "WR",
+                          "jerseyNumber": 82
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-2",
+                      "player": {
+                          "id": 8072,
+                          "firstName": "Mychal",
+                          "lastName": "Kendricks",
+                          "position": "LB",
+                          "jerseyNumber": 95
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-NT",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-2",
+                      "player": {
+                          "id": 8019,
+                          "firstName": "Nelson",
+                          "lastName": "Agholor",
+                          "position": "WR",
+                          "jerseyNumber": 17
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-1",
+                      "player": {
+                          "id": 6386,
+                          "firstName": "Alshon",
+                          "lastName": "Jeffery",
+                          "position": "WR",
+                          "jerseyNumber": 17
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-2",
+                      "player": {
+                          "id": 6275,
+                          "firstName": "Ronald",
+                          "lastName": "Darby",
+                          "position": "CB",
+                          "jerseyNumber": 28
+                      }
+                  },
+                  {
+                      "position": "Offense-G-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-1",
+                      "player": {
+                          "id": 8543,
+                          "firstName": "Rodney",
+                          "lastName": "McLeod",
+                          "position": "DB",
+                          "jerseyNumber": 23
+                      }
+                  },
+                  {
+                      "position": "Offense-G-1",
+                      "player": {
+                          "id": 13278,
+                          "firstName": "Darrell",
+                          "lastName": "Greene",
+                          "position": "G",
+                          "jerseyNumber": 78
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-G-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-S-1",
+                      "player": {
+                          "id": 8087,
+                          "firstName": "Chris",
+                          "lastName": "Maragos",
+                          "position": "FS",
+                          "jerseyNumber": 42
+                      }
+                  },
+                  {
+                      "position": "Defense-S-2",
+                      "player": null
+                  }
+              ]
+          }
+      },
+      {
+          "team": {
+              "id": 50,
+              "abbreviation": "NE"
+          },
+          "expected": {
+              "lineupPositions": [
+                  {
+                      "position": "Offense-RB-1",
+                      "player": {
+                          "id": 7557,
+                          "firstName": "Dion",
+                          "lastName": "Lewis",
+                          "position": "RB",
+                          "jerseyNumber": 26
+                      }
+                  },
+                  {
+                      "position": "Offense-C",
+                      "player": {
+                          "id": 7580,
+                          "firstName": "Shaq",
+                          "lastName": "Mason",
+                          "position": "C",
+                          "jerseyNumber": 70
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-3",
+                      "player": {
+                          "id": 7558,
+                          "firstName": "James",
+                          "lastName": "White",
+                          "position": "RB",
+                          "jerseyNumber": 28
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-2",
+                      "player": {
+                          "id": 6469,
+                          "firstName": "Rex",
+                          "lastName": "Burkhead",
+                          "position": "RB",
+                          "jerseyNumber": 34
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-2",
+                      "player": {
+                          "id": 7111,
+                          "firstName": "Dwayne",
+                          "lastName": "Allen",
+                          "position": "TE",
+                          "jerseyNumber": 83
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-1",
+                      "player": {
+                          "id": 7575,
+                          "firstName": "Rob",
+                          "lastName": "Gronkowski",
+                          "position": "TE",
+                          "jerseyNumber": 87
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DE-1",
+                      "player": {
+                          "id": 7596,
+                          "firstName": "Geneo",
+                          "lastName": "Grissom",
+                          "position": "DE",
+                          "jerseyNumber": 92
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-1",
+                      "player": {
+                          "id": 13067,
+                          "firstName": "Antonio",
+                          "lastName": "Garcia",
+                          "position": "OT",
+                          "jerseyNumber": 63
+                      }
+                  },
+                  {
+                      "position": "Defense-DT-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-1",
+                      "player": {
+                          "id": 6165,
+                          "firstName": "Lawrence",
+                          "lastName": "Guy",
+                          "position": "DT",
+                          "jerseyNumber": 93
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-1",
+                      "player": {
+                          "id": 7549,
+                          "firstName": "Tom",
+                          "lastName": "Brady",
+                          "position": "QB",
+                          "jerseyNumber": 12
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-2",
+                      "player": null
+                  },
+                  {
+                      "position": "SpecialTeams-K-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-1",
+                      "player": {
+                          "id": 6887,
+                          "firstName": "Kyle",
+                          "lastName": "Van Noy",
+                          "position": "OLB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "SpecialTeams-K-1",
+                      "player": {
+                          "id": 7638,
+                          "firstName": "Stephen",
+                          "lastName": "Gostkowski",
+                          "position": "K",
+                          "jerseyNumber": 3
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-4",
+                      "player": {
+                          "id": 7104,
+                          "firstName": "Phillip",
+                          "lastName": "Dorsett",
+                          "position": "WR",
+                          "jerseyNumber": 4
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-3",
+                      "player": {
+                          "id": 7560,
+                          "firstName": "Danny",
+                          "lastName": "Amendola",
+                          "position": "WR",
+                          "jerseyNumber": 80
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-5",
+                      "player": {
+                          "id": 8478,
+                          "firstName": "Kenny",
+                          "lastName": "Britt",
+                          "position": "WR",
+                          "jerseyNumber": 85
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-2",
+                      "player": {
+                          "id": 6525,
+                          "firstName": "Marquis",
+                          "lastName": "Flowers",
+                          "position": "OLB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-NT",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-2",
+                      "player": {
+                          "id": 6218,
+                          "firstName": "Chris",
+                          "lastName": "Hogan",
+                          "position": "WR",
+                          "jerseyNumber": 15
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-1",
+                      "player": {
+                          "id": 7656,
+                          "firstName": "Brandin",
+                          "lastName": "Cooks",
+                          "position": "WR",
+                          "jerseyNumber": 10
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-2",
+                      "player": {
+                          "id": 7632,
+                          "firstName": "Brandon",
+                          "lastName": "King",
+                          "position": "DB",
+                          "jerseyNumber": 36
+                      }
+                  },
+                  {
+                      "position": "Offense-G-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-1",
+                      "player": {
+                          "id": 7629,
+                          "firstName": "Nate",
+                          "lastName": "Ebner",
+                          "position": "DB",
+                          "jerseyNumber": 43
+                      }
+                  },
+                  {
+                      "position": "Offense-G-1",
+                      "player": {
+                          "id": 7397,
+                          "firstName": "Jamil",
+                          "lastName": "Douglas",
+                          "position": "G",
+                          "jerseyNumber": 65
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-G-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-S-1",
+                      "player": {
+                          "id": 7637,
+                          "firstName": "Jordan",
+                          "lastName": "Richards",
+                          "position": "SS",
+                          "jerseyNumber": 37
+                      }
+                  },
+                  {
+                      "position": "Defense-S-2",
+                      "player": null
+                  }
+              ]
+          },
+          "actual": {
+              "lineupPositions": [
+                  {
+                      "position": "Offense-RB-1",
+                      "player": {
+                          "id": 7557,
+                          "firstName": "Dion",
+                          "lastName": "Lewis",
+                          "position": "RB",
+                          "jerseyNumber": 26
+                      }
+                  },
+                  {
+                      "position": "Offense-C",
+                      "player": {
+                          "id": 7580,
+                          "firstName": "Shaq",
+                          "lastName": "Mason",
+                          "position": "C",
+                          "jerseyNumber": 70
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-3",
+                      "player": {
+                          "id": 7558,
+                          "firstName": "James",
+                          "lastName": "White",
+                          "position": "RB",
+                          "jerseyNumber": 28
+                      }
+                  },
+                  {
+                      "position": "Offense-RB-2",
+                      "player": {
+                          "id": 6469,
+                          "firstName": "Rex",
+                          "lastName": "Burkhead",
+                          "position": "RB",
+                          "jerseyNumber": 34
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-2",
+                      "player": {
+                          "id": 7111,
+                          "firstName": "Dwayne",
+                          "lastName": "Allen",
+                          "position": "TE",
+                          "jerseyNumber": 83
+                      }
+                  },
+                  {
+                      "position": "Offense-TE-1",
+                      "player": {
+                          "id": 7575,
+                          "firstName": "Rob",
+                          "lastName": "Gronkowski",
+                          "position": "TE",
+                          "jerseyNumber": 87
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DE-1",
+                      "player": {
+                          "id": 7596,
+                          "firstName": "Geneo",
+                          "lastName": "Grissom",
+                          "position": "DE",
+                          "jerseyNumber": 92
+                      }
+                  },
+                  {
+                      "position": "Defense-DE-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-T-1",
+                      "player": {
+                          "id": 13067,
+                          "firstName": "Antonio",
+                          "lastName": "Garcia",
+                          "position": "OT",
+                          "jerseyNumber": 63
+                      }
+                  },
+                  {
+                      "position": "Defense-DT-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-DT-1",
+                      "player": {
+                          "id": 6165,
+                          "firstName": "Lawrence",
+                          "lastName": "Guy",
+                          "position": "DT",
+                          "jerseyNumber": 93
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-1",
+                      "player": {
+                          "id": 7549,
+                          "firstName": "Tom",
+                          "lastName": "Brady",
+                          "position": "QB",
+                          "jerseyNumber": 12
+                      }
+                  },
+                  {
+                      "position": "Offense-QB-2",
+                      "player": null
+                  },
+                  {
+                      "position": "SpecialTeams-K-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-1",
+                      "player": {
+                          "id": 6887,
+                          "firstName": "Kyle",
+                          "lastName": "Van Noy",
+                          "position": "OLB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "SpecialTeams-K-1",
+                      "player": {
+                          "id": 7638,
+                          "firstName": "Stephen",
+                          "lastName": "Gostkowski",
+                          "position": "K",
+                          "jerseyNumber": 3
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-4",
+                      "player": {
+                          "id": 7104,
+                          "firstName": "Phillip",
+                          "lastName": "Dorsett",
+                          "position": "WR",
+                          "jerseyNumber": 4
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-3",
+                      "player": {
+                          "id": 7560,
+                          "firstName": "Danny",
+                          "lastName": "Amendola",
+                          "position": "WR",
+                          "jerseyNumber": 80
+                      }
+                  },
+                  {
+                      "position": "Offense-WR-5",
+                      "player": {
+                          "id": 8478,
+                          "firstName": "Kenny",
+                          "lastName": "Britt",
+                          "position": "WR",
+                          "jerseyNumber": 85
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-2",
+                      "player": {
+                          "id": 6525,
+                          "firstName": "Marquis",
+                          "lastName": "Flowers",
+                          "position": "OLB",
+                          "jerseyNumber": 53
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-NT",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-LB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-2",
+                      "player": {
+                          "id": 6218,
+                          "firstName": "Chris",
+                          "lastName": "Hogan",
+                          "position": "WR",
+                          "jerseyNumber": 15
+                      }
+                  },
+                  {
+                      "position": "Defense-LB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-WR-1",
+                      "player": {
+                          "id": 7656,
+                          "firstName": "Brandin",
+                          "lastName": "Cooks",
+                          "position": "WR",
+                          "jerseyNumber": 10
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-5",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-2",
+                      "player": {
+                          "id": 7632,
+                          "firstName": "Brandon",
+                          "lastName": "King",
+                          "position": "DB",
+                          "jerseyNumber": 36
+                      }
+                  },
+                  {
+                      "position": "Offense-G-2",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-1",
+                      "player": {
+                          "id": 7629,
+                          "firstName": "Nate",
+                          "lastName": "Ebner",
+                          "position": "DB",
+                          "jerseyNumber": 43
+                      }
+                  },
+                  {
+                      "position": "Offense-G-1",
+                      "player": {
+                          "id": 7397,
+                          "firstName": "Jamil",
+                          "lastName": "Douglas",
+                          "position": "G",
+                          "jerseyNumber": 65
+                      }
+                  },
+                  {
+                      "position": "Defense-CB-4",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-CB-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Offense-G-3",
+                      "player": null
+                  },
+                  {
+                      "position": "Defense-S-1",
+                      "player": {
+                          "id": 7637,
+                          "firstName": "Jordan",
+                          "lastName": "Richards",
+                          "position": "SS",
+                          "jerseyNumber": 37
+                      }
+                  },
+                  {
+                      "position": "Defense-S-2",
+                      "player": null
+                  }
+              ]
+          }
+      }
+  ],
+  "references": {
+      "teamReferences": [
+          {
+              "id": 50,
+              "city": "New England",
+              "name": "Patriots",
+              "abbreviation": "NE",
+              "homeVenue": {
+                  "id": 61,
+                  "name": "Gillette Stadium"
+              }
+          },
+          {
+              "id": 54,
+              "city": "Philadelphia",
+              "name": "Eagles",
+              "abbreviation": "PHI",
+              "homeVenue": {
+                  "id": 65,
+                  "name": "Lincoln Financial Field"
+              }
+          }
+      ],
+      "venueReferences": [
+          {
+              "id": 61,
+              "name": "Gillette Stadium",
+              "city": "Foxborough, MA",
+              "country": "USA"
+          }
+      ],
+      "playerReferences": [
+          {
+              "id": 6165,
+              "firstName": "Lawrence",
+              "lastName": "Guy",
+              "position": "DT",
+              "jerseyNumber": 93,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 305,
+              "birthDate": "1990-03-17",
+              "age": 28,
+              "birthCity": "Las Vegas, NV",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6166,
+              "firstName": "Timmy",
+              "lastName": "Jernigan",
+              "position": "DT",
+              "jerseyNumber": 97,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": {
+                  "description": "illness",
+                  "playingProbability": "PROBABLE"
+              },
+              "height": "6'2\"",
+              "weight": 302,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6218,
+              "firstName": "Chris",
+              "lastName": "Hogan",
+              "position": "WR",
+              "jerseyNumber": 15,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'1\"",
+              "weight": 220,
+              "birthDate": "1988-10-24",
+              "age": 29,
+              "birthCity": "Ramapo, NJ",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6275,
+              "firstName": "Ronald",
+              "lastName": "Darby",
+              "position": "CB",
+              "jerseyNumber": 28,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": {
+                  "description": "illness",
+                  "playingProbability": "PROBABLE"
+              },
+              "height": "5'11\"",
+              "weight": 193,
+              "birthDate": "1994-01-02",
+              "age": 24,
+              "birthCity": "Oxon Hill, MD",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6386,
+              "firstName": "Alshon",
+              "lastName": "Jeffery",
+              "position": "WR",
+              "jerseyNumber": 17,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 218,
+              "birthDate": "1990-02-14",
+              "age": 28,
+              "birthCity": "St. Matthews, SC",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6469,
+              "firstName": "Rex",
+              "lastName": "Burkhead",
+              "position": "RB",
+              "jerseyNumber": 34,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 210,
+              "birthDate": "1990-07-02",
+              "age": 28,
+              "birthCity": "Lexington, KY",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6525,
+              "firstName": "Marquis",
+              "lastName": "Flowers",
+              "position": "OLB",
+              "jerseyNumber": 53,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 240,
+              "birthDate": "1992-02-16",
+              "age": 26,
+              "birthCity": "Independence, MO",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 6887,
+              "firstName": "Kyle",
+              "lastName": "Van Noy",
+              "position": "OLB",
+              "jerseyNumber": 53,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 243,
+              "birthDate": "1990-06-19",
+              "age": 28,
+              "birthCity": "Reno, NV",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7104,
+              "firstName": "Phillip",
+              "lastName": "Dorsett",
+              "position": "WR",
+              "jerseyNumber": 4,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 185,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7111,
+              "firstName": "Dwayne",
+              "lastName": "Allen",
+              "position": "TE",
+              "jerseyNumber": 83,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 265,
+              "birthDate": "1990-02-23",
+              "age": 28,
+              "birthCity": "Fayetteville, NC",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7369,
+              "firstName": "Jay",
+              "lastName": "Ajayi",
+              "position": "RB",
+              "jerseyNumber": 23,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 228,
+              "birthDate": "1993-06-15",
+              "age": 25,
+              "birthCity": "London",
+              "birthCountry": "England",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7397,
+              "firstName": "Jamil",
+              "lastName": "Douglas",
+              "position": "G",
+              "jerseyNumber": 65,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 308,
+              "birthDate": "1992-02-28",
+              "age": 26,
+              "birthCity": "Compton, CA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7549,
+              "firstName": "Tom",
+              "lastName": "Brady",
+              "position": "QB",
+              "jerseyNumber": 12,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 225,
+              "birthDate": "1977-08-12",
+              "age": 40,
+              "birthCity": "San Mateo, CA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": "tbrady14",
+              "handedness": {
+                  "throws": null
+              }
+          },
+          {
+              "id": 7552,
+              "firstName": "LeGarrette",
+              "lastName": "Blount",
+              "position": "RB",
+              "jerseyNumber": 35,
+              "currentTeam": {
+                  "id": 61,
+                  "abbreviation": "DET"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 250,
+              "birthDate": "1986-12-05",
+              "age": 31,
+              "birthCity": "Madison, FL",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7557,
+              "firstName": "Dion",
+              "lastName": "Lewis",
+              "position": "RB",
+              "jerseyNumber": 26,
+              "currentTeam": {
+                  "id": 67,
+                  "abbreviation": "TEN"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'8\"",
+              "weight": 195,
+              "birthDate": "1990-09-27",
+              "age": 27,
+              "birthCity": "Albany, NY",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7558,
+              "firstName": "James",
+              "lastName": "White",
+              "position": "RB",
+              "jerseyNumber": 28,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 206,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7560,
+              "firstName": "Danny",
+              "lastName": "Amendola",
+              "position": "WR",
+              "jerseyNumber": 80,
+              "currentTeam": {
+                  "id": 49,
+                  "abbreviation": "MIA"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'11\"",
+              "weight": 190,
+              "birthDate": "1985-11-01",
+              "age": 32,
+              "birthCity": "The Woodlands, TX",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7575,
+              "firstName": "Rob",
+              "lastName": "Gronkowski",
+              "position": "TE",
+              "jerseyNumber": 87,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'6\"",
+              "weight": 265,
+              "birthDate": "1989-05-14",
+              "age": 29,
+              "birthCity": "Amherst, NY",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7580,
+              "firstName": "Shaq",
+              "lastName": "Mason",
+              "position": "C",
+              "jerseyNumber": 70,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'1\"",
+              "weight": 310,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7596,
+              "firstName": "Geneo",
+              "lastName": "Grissom",
+              "position": "DE",
+              "jerseyNumber": 92,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 265,
+              "birthDate": "1992-06-04",
+              "age": 26,
+              "birthCity": "Lyons, KS",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7629,
+              "firstName": "Nate",
+              "lastName": "Ebner",
+              "position": "DB",
+              "jerseyNumber": 43,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": {
+                  "description": "knee",
+                  "playingProbability": "QUESTIONABLE"
+              },
+              "height": "6'0\"",
+              "weight": 220,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7632,
+              "firstName": "Brandon",
+              "lastName": "King",
+              "position": "DB",
+              "jerseyNumber": 36,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": {
+                  "description": "knee",
+                  "playingProbability": "PROBABLE"
+              },
+              "height": "6'2\"",
+              "weight": 220,
+              "birthDate": "1993-06-08",
+              "age": 25,
+              "birthCity": "Alabaster, AL",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7637,
+              "firstName": "Jordan",
+              "lastName": "Richards",
+              "position": "SS",
+              "jerseyNumber": 37,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'11\"",
+              "weight": 210,
+              "birthDate": "1993-01-21",
+              "age": 25,
+              "birthCity": "Sacremento, CA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7638,
+              "firstName": "Stephen",
+              "lastName": "Gostkowski",
+              "position": "K",
+              "jerseyNumber": 3,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'1\"",
+              "weight": 215,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 7656,
+              "firstName": "Brandin",
+              "lastName": "Cooks",
+              "position": "WR",
+              "jerseyNumber": 10,
+              "currentTeam": {
+                  "id": 77,
+                  "abbreviation": "LA"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 189,
+              "birthDate": "1993-09-25",
+              "age": 24,
+              "birthCity": "Stockton, CA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8019,
+              "firstName": "Nelson",
+              "lastName": "Agholor",
+              "position": "WR",
+              "jerseyNumber": 17,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 198,
+              "birthDate": "1993-05-24",
+              "age": 25,
+              "birthCity": "N",
+              "birthCountry": "Nigeria",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8031,
+              "firstName": "Brent",
+              "lastName": "Celek",
+              "position": "TE",
+              "jerseyNumber": 87,
+              "currentTeam": null,
+              "currentRosterStatus": "UFA",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 255,
+              "birthDate": "1985-04-25",
+              "age": 33,
+              "birthCity": "Cincinnati, OH",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8032,
+              "firstName": "Zach",
+              "lastName": "Ertz",
+              "position": "TE",
+              "jerseyNumber": 86,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'5\"",
+              "weight": 250,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8036,
+              "firstName": "Jason",
+              "lastName": "Kelce",
+              "position": "C",
+              "jerseyNumber": 62,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 295,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8049,
+              "firstName": "Jason",
+              "lastName": "Peters",
+              "position": "OT",
+              "jerseyNumber": 71,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 328,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8053,
+              "firstName": "Vinny",
+              "lastName": "Curry",
+              "position": "DE",
+              "jerseyNumber": 75,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 279,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8067,
+              "firstName": "Najee",
+              "lastName": "Goode",
+              "position": "LB",
+              "jerseyNumber": 53,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 244,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8072,
+              "firstName": "Mychal",
+              "lastName": "Kendricks",
+              "position": "LB",
+              "jerseyNumber": 95,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 240,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8087,
+              "firstName": "Chris",
+              "lastName": "Maragos",
+              "position": "FS",
+              "jerseyNumber": 42,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 200,
+              "birthDate": null,
+              "age": null,
+              "birthCity": null,
+              "birthCountry": null,
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8394,
+              "firstName": "Torrey",
+              "lastName": "Smith",
+              "position": "WR",
+              "jerseyNumber": 82,
+              "currentTeam": {
+                  "id": 69,
+                  "abbreviation": "CAR"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'0\"",
+              "weight": 205,
+              "birthDate": "1989-01-25",
+              "age": 29,
+              "birthCity": "Richmond, VA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8463,
+              "firstName": "Nick",
+              "lastName": "Foles",
+              "position": "QB",
+              "jerseyNumber": 9,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'6\"",
+              "weight": 243,
+              "birthDate": "1989-01-20",
+              "age": 29,
+              "birthCity": "Austin, TX",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": {
+                  "throws": null
+              }
+          },
+          {
+              "id": 8478,
+              "firstName": "Kenny",
+              "lastName": "Britt",
+              "position": "WR",
+              "jerseyNumber": 85,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 223,
+              "birthDate": "1988-09-19",
+              "age": 29,
+              "birthCity": "Bayonne, NJ",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 8543,
+              "firstName": "Rodney",
+              "lastName": "McLeod",
+              "position": "DB",
+              "jerseyNumber": 23,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 195,
+              "birthDate": "1990-06-23",
+              "age": 28,
+              "birthCity": "Clinton, MD",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 12837,
+              "firstName": "Jake",
+              "lastName": "Elliott",
+              "position": "K",
+              "jerseyNumber": 3,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'9\"",
+              "weight": 170,
+              "birthDate": "1995-01-21",
+              "age": 23,
+              "birthCity": "Western Springs, IL",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 13067,
+              "firstName": "Antonio",
+              "lastName": "Garcia",
+              "position": "OT",
+              "jerseyNumber": 63,
+              "currentTeam": {
+                  "id": 50,
+                  "abbreviation": "NE"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'7\"",
+              "weight": 302,
+              "birthDate": "1993-12-10",
+              "age": 24,
+              "birthCity": "Houston, TX",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 13272,
+              "firstName": "Corey",
+              "lastName": "Clement",
+              "position": "RB",
+              "jerseyNumber": 30,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "5'10\"",
+              "weight": 220,
+              "birthDate": "1994-11-02",
+              "age": 23,
+              "birthCity": "Glassboro, NJ",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 13278,
+              "firstName": "Darrell",
+              "lastName": "Greene",
+              "position": "G",
+              "jerseyNumber": 78,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'3\"",
+              "weight": 321,
+              "birthDate": "1992-10-29",
+              "age": 25,
+              "birthCity": "Decatur, GA",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          },
+          {
+              "id": 13280,
+              "firstName": "Mack",
+              "lastName": "Hollins",
+              "position": "WR",
+              "jerseyNumber": 10,
+              "currentTeam": {
+                  "id": 54,
+                  "abbreviation": "PHI"
+              },
+              "currentRosterStatus": "ROSTER",
+              "currentInjury": null,
+              "height": "6'4\"",
+              "weight": 221,
+              "birthDate": "1993-09-16",
+              "age": 24,
+              "birthCity": "Rockville, MD",
+              "birthCountry": "USA",
+              "rookie": false,
+              "college": null,
+              "twitter": null,
+              "handedness": null
+          }
+      ]
+  }
+}

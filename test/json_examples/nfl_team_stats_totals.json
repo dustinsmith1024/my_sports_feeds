@@ -1,0 +1,1350 @@
+{
+  "lastUpdatedOn": "2018-07-31T17:27:14.757Z",
+  "teamStatsTotals": [
+      {
+          "team": {
+              "id": 73,
+              "city": "Kansas City",
+              "name": "Chiefs",
+              "abbreviation": "KC",
+              "homeVenue": {
+                  "id": 58,
+                  "name": "Arrowhead Stadium"
+              }
+          },
+          "stats": {
+              "gamesPlayed": 16,
+              "passing": {
+                  "passAttempts": 543,
+                  "passCompletions": 363,
+                  "passPct": 66.9,
+                  "passGrossYards": 4326,
+                  "passNetYards": 4021,
+                  "passAvg": 8,
+                  "passYardsPerAtt": 6.9,
+                  "passTD": 26,
+                  "passTDPct": 4.8,
+                  "passInt": 8,
+                  "passIntPct": 1.5,
+                  "passLng": 801,
+                  "pass20Plus": 54,
+                  "pass40Plus": 14,
+                  "passSacks": 37,
+                  "passSackY": 305,
+                  "qBRating": 100.8
+              },
+              "rushing": {
+                  "rushAttempts": 403,
+                  "rushYards": 1876,
+                  "rushAverage": 4.7,
+                  "rushTD": 12,
+                  "rushLng": 504,
+                  "rush1stDowns": 93,
+                  "rush1stDownsPct": 23.1,
+                  "rush20Plus": 10,
+                  "rush40Plus": 4,
+                  "rushFumbles": 7
+              },
+              "receiving": {
+                  "rec1stDowns": 198,
+                  "rec20Plus": 54,
+                  "rec40Plus": 14,
+                  "recAverage": 11.9,
+                  "receptions": 363,
+                  "recFumbles": 0,
+                  "recLng": 801,
+                  "recTD": 26,
+                  "recYards": 4326
+              },
+              "tackles": {
+                  "tackleSolo": 703,
+                  "tackleTotal": 921,
+                  "tackleAst": 218,
+                  "sacks": 31,
+                  "sackYds": 216,
+                  "tacklesForLoss": 102
+              },
+              "interceptions": {
+                  "interceptions": 16,
+                  "intTD": 0,
+                  "intYds": 201,
+                  "intAverage": 12.6,
+                  "intLng": 173,
+                  "passesDefended": 81,
+                  "stuffs": 375,
+                  "stuffYds": 392,
+                  "kB": 1,
+                  "safeties": 0
+              },
+              "fumbles": {
+                  "fumbles": 11,
+                  "fumLost": 3,
+                  "fumForced": 13,
+                  "fumOwnRec": 7,
+                  "fumOppRec": 11,
+                  "fumRecYds": -88,
+                  "fumTotalRec": 18,
+                  "fumTD": 3
+              },
+              "kickoffReturns": {
+                  "krRet": 45,
+                  "krYds": 1067,
+                  "krAvg": 23.7,
+                  "krLng": 510,
+                  "krTD": 0,
+                  "kr20Plus": 29,
+                  "kr40Plus": 3,
+                  "krFC": 0,
+                  "krFum": 0
+              },
+              "puntReturns": {
+                  "prRet": 30,
+                  "prYds": 268,
+                  "prAvg": 8.9,
+                  "prLng": 252,
+                  "prTD": 1,
+                  "pr20Plus": 5,
+                  "pr40Plus": 1,
+                  "prFC": 10,
+                  "prFum": 0
+              },
+              "fieldGoals": {
+                  "fgBlk": 0,
+                  "fgMade": 41,
+                  "fgAtt": 45,
+                  "fgPct": 91.1,
+                  "fgMade1_19": 0,
+                  "fgAtt1_19": 0,
+                  "fg1_19Pct": 0,
+                  "fgMade20_29": 8,
+                  "fgAtt20_29": 8,
+                  "fg20_29Pct": 100,
+                  "fgMade30_39": 19,
+                  "fgAtt30_39": 20,
+                  "fg30_39Pct": 95,
+                  "fgMade40_49": 10,
+                  "fgAtt40_49": 12,
+                  "fg40_49Pct": 83.3,
+                  "fgMade50Plus": 4,
+                  "fgAtt50Plus": 5,
+                  "fg50PlusPct": 80,
+                  "fgLng": 648
+              },
+              "extraPointAttempt": {
+                  "xpBlk": 0,
+                  "xpMade": 40,
+                  "xpAtt": 40,
+                  "xpPct": 100,
+                  "fgAndXpPts": 163
+              },
+              "kickoffs": {
+                  "kickoffs": 94,
+                  "koYds": 6054,
+                  "koOOB": 0,
+                  "koAvg": 64.4,
+                  "koTB": 70,
+                  "koRet": 24,
+                  "koRetYds": 496,
+                  "koRetAvgYds": 20.7,
+                  "koTD": 0,
+                  "koOS": 0,
+                  "koOSR": 0
+              },
+              "punting": {
+                  "punts": 59,
+                  "puntYds": 2693,
+                  "puntNetYds": 2517,
+                  "puntLng": 838,
+                  "puntAvg": 45.6,
+                  "puntNetAvg": 42.7,
+                  "puntBlk": 0,
+                  "puntOOB": 0,
+                  "puntDown": 8,
+                  "puntIn20": 28,
+                  "puntIn20Pct": 47.5,
+                  "puntTB": 5,
+                  "puntTBPct": 8.5,
+                  "puntFC": 22,
+                  "puntRet": 21,
+                  "puntRetYds": 176,
+                  "puntRetAvg": 8.4
+              },
+              "miscellaneous": {
+                  "firstDownsTotal": 322,
+                  "firstDownsPass": 198,
+                  "firstDownsRush": 93,
+                  "firstDownsPenalty": 31,
+                  "thirdDowns": 77,
+                  "thirdDownsAtt": 199,
+                  "thirdDownsPct": 38.7,
+                  "fourthDowns": 3,
+                  "fourthDownsAtt": 10,
+                  "fourthDownsPct": 30,
+                  "penalties": 110,
+                  "penaltyYds": 995,
+                  "OffensePlays": 983,
+                  "OffenseYds": 5888,
+                  "OffenseAvgYds": 6,
+                  "totalTD": 41
+              },
+              "standings": {
+                  "Wins": 10,
+                  "Losses": 6,
+                  "ties": 0,
+                  "OTWins": 0,
+                  "OTLosses": 1,
+                  "WinPct": 0.625,
+                  "pointsFor": 409,
+                  "pointsAgainst": 337,
+                  "pointDifferential": 72
+              },
+              "twoPointAttempts": {
+                  "twoPtAtt": 2,
+                  "twoPtMade": 0,
+                  "twoPtPassAtt": 1,
+                  "twoPtPassMade": 0,
+                  "twoPtRushAtt": 1,
+                  "twoPtRushMade": 0
+              }
+          }
+      }
+  ],
+  "references": {
+      "teamStatReferences": [
+          {
+              "category": "Passing",
+              "fullName": "passAttempts",
+              "description": "Pass Attempts",
+              "abbreviation": "Att",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passCompletions",
+              "description": "Pass Completions",
+              "abbreviation": "Comp",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passPct",
+              "description": "Pass Percentage",
+              "abbreviation": "Pct",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passGrossYards",
+              "description": "Pass Gross Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passYardsPerAtt",
+              "description": "Pass Yards/Attempt",
+              "abbreviation": "Yards/Att",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passTD",
+              "description": "Pass Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passTDPct",
+              "description": "Pass Touchdown Percentage",
+              "abbreviation": "TD%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passInt",
+              "description": "Pass Interceptions",
+              "abbreviation": "Int",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passIntPct",
+              "description": "Pass Interception Percentage",
+              "abbreviation": "Int%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passLng",
+              "description": "Longest Pass",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "pass20Plus",
+              "description": "Pass 20+ Yards",
+              "abbreviation": "20+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "pass40Plus",
+              "description": "Pass 40+ Yards",
+              "abbreviation": "40+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passSacks",
+              "description": "Pass Sacks",
+              "abbreviation": "Sacks",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passSackY",
+              "description": "Pass Sack Yards Lost",
+              "abbreviation": "SackY",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "qBRating",
+              "description": "Quarterback Rating",
+              "abbreviation": "QBRating",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushAttempts",
+              "description": "Rush Attempts",
+              "abbreviation": "Att",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushYards",
+              "description": "Rush Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushAverage",
+              "description": "Rush Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushTD",
+              "description": "Rush Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushLng",
+              "description": "Longest Rush",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rush1stDowns",
+              "description": "Rush 1st Downs",
+              "abbreviation": "1stDowns",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rush1stDownsPct",
+              "description": "Rush 1st Downs %",
+              "abbreviation": "1stDowns%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rush20Plus",
+              "description": "Rush 20+ Yards",
+              "abbreviation": "20+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rush40Plus",
+              "description": "Rush 40+ Yards",
+              "abbreviation": "40+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Rushing",
+              "fullName": "rushFumbles",
+              "description": "Rush Fumbles",
+              "abbreviation": "Fum",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "receptions",
+              "description": "Receptions",
+              "abbreviation": "Rec",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "recYards",
+              "description": "Reception Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "recAverage",
+              "description": "Reception Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "recTD",
+              "description": "Reception Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "recLng",
+              "description": "Longest Reception",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "rec1stDowns",
+              "description": "Reception 1st Downs",
+              "abbreviation": "1stDowns",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "rec20Plus",
+              "description": "Reception 20+ Yards",
+              "abbreviation": "20+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "rec40Plus",
+              "description": "Reception 40+ Yards",
+              "abbreviation": "40+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Receiving",
+              "fullName": "recFumbles",
+              "description": "Reception Fumbles",
+              "abbreviation": "Fumbles",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "tackleSolo",
+              "description": "Solo Tackles",
+              "abbreviation": "Solo",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "tackleTotal",
+              "description": "Total Tackles",
+              "abbreviation": "Total",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "tackleAst",
+              "description": "Assisted Tackles",
+              "abbreviation": "Ast",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "sacks",
+              "description": "Sacks",
+              "abbreviation": "Sacks",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "sackYds",
+              "description": "Sack Yards",
+              "abbreviation": "SackYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "interceptions",
+              "description": "Interceptions",
+              "abbreviation": "Int",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "intTD",
+              "description": "Interception Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "intYds",
+              "description": "Interception Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "intAverage",
+              "description": "Interception Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "intLng",
+              "description": "Longest Interception",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "passesDefended",
+              "description": "Passes Defended",
+              "abbreviation": "PD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "stuffs",
+              "description": "Stuffs",
+              "abbreviation": "Stuffs",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "stuffYds",
+              "description": "Stuff Yards",
+              "abbreviation": "StuffYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "kB",
+              "description": "Blocked Kicks",
+              "abbreviation": "KB",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumbles",
+              "description": "Fumbles",
+              "abbreviation": "Fum",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumLost",
+              "description": "Fumbles Lost",
+              "abbreviation": "Lost",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumForced",
+              "description": "Forced Fumbles",
+              "abbreviation": "Forced",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumOwnRec",
+              "description": "Own Fumbles Recovered",
+              "abbreviation": "OwnRec",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumOppRec",
+              "description": "Recovered By Opposition",
+              "abbreviation": "OppRec",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumRecYds",
+              "description": "Fumbles Recovered Yards",
+              "abbreviation": "RecYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumTotalRec",
+              "description": "Total Fumbles Recovered",
+              "abbreviation": "TotalRec",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Fumbles",
+              "fullName": "fumTD",
+              "description": "Fumble Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krRet",
+              "description": "Kick Returns",
+              "abbreviation": "Ret",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krYds",
+              "description": "Kick Return Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krAvg",
+              "description": "Kick Returns Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krLng",
+              "description": "Longest Kick Return",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krTD",
+              "description": "Kick Return Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "kr20Plus",
+              "description": "Kick Returns 20+ Yards",
+              "abbreviation": "20+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "kr40Plus",
+              "description": "Kick Returns 40+ Yards",
+              "abbreviation": "40+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krFC",
+              "description": "Kick Return Fair Catches",
+              "abbreviation": "FC",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoff Returns",
+              "fullName": "krFum",
+              "description": "Kick Return Fumbles",
+              "abbreviation": "Fum",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prRet",
+              "description": "Punt Returns",
+              "abbreviation": "Ret",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prYds",
+              "description": "Punt Return Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prAvg",
+              "description": "Punt Returns Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prLng",
+              "description": "Longest Punt Return",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prTD",
+              "description": "Punt Return Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "pr20Plus",
+              "description": "Punt Returns 20+ Yards",
+              "abbreviation": "20+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "pr40Plus",
+              "description": "Punt Returns 40+ Yards",
+              "abbreviation": "40+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prFC",
+              "description": "Punt Return Fair Catches",
+              "abbreviation": "FC",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punt Returns",
+              "fullName": "prFum",
+              "description": "Punt Return Fumbles",
+              "abbreviation": "Fum",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgBlk",
+              "description": "Field Goals Blocked",
+              "abbreviation": "Blk",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade",
+              "description": "Field Goals Made",
+              "abbreviation": "Made",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt",
+              "description": "Field Goal Attempts",
+              "abbreviation": "Att",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgPct",
+              "description": "Field Goal %",
+              "abbreviation": "FG%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade1_19",
+              "description": "Field Goals Made 1-19 Yards",
+              "abbreviation": "Made1-19",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt1_19",
+              "description": "Field Goal Attempts 1-19 Yards",
+              "abbreviation": "Att1-19",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fg1_19Pct",
+              "description": "Field Goal % 1-19 Yards",
+              "abbreviation": "1-19%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade20_29",
+              "description": "Field Goals Made 20-29 Yards",
+              "abbreviation": "Made20-29",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt20_29",
+              "description": "Field Goal Att 20-29 Yards",
+              "abbreviation": "Att20-29",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fg20_29Pct",
+              "description": "Field Goal % 20-29 Yards",
+              "abbreviation": "20-29%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade30_39",
+              "description": "Field Goals Made 30-39 Yards",
+              "abbreviation": "Made30-39",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt30_39",
+              "description": "Field Goal Att 30-39 Yards",
+              "abbreviation": "Att30-39",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fg30_39Pct",
+              "description": "Field Goal % 30-39 Yards",
+              "abbreviation": "30-39%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade40_49",
+              "description": "Field Goals Made 40-49 Yards",
+              "abbreviation": "Made40-49",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt40_49",
+              "description": "Field Goal Att 40-49 Yards",
+              "abbreviation": "Att40-49",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fg40_49Pct",
+              "description": "Field Goal % 40-49 Yards",
+              "abbreviation": "40-49%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgMade50Plus",
+              "description": "Field Goals Made 50+ Yards",
+              "abbreviation": "Made50+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgAtt50Plus",
+              "description": "Field Goal Attempts 50+ Yards",
+              "abbreviation": "Att50+",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fg50PlusPct",
+              "description": "Field Goal % 50+ Yards",
+              "abbreviation": "50+%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Field Goals",
+              "fullName": "fgLng",
+              "description": "Longest Field Goal",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "PAT",
+              "fullName": "xpBlk",
+              "description": "Extra Points Blocked",
+              "abbreviation": "Blk",
+              "type": "INTEGER"
+          },
+          {
+              "category": "PAT",
+              "fullName": "xpMade",
+              "description": "Extra Points Made",
+              "abbreviation": "Made",
+              "type": "INTEGER"
+          },
+          {
+              "category": "PAT",
+              "fullName": "xpAtt",
+              "description": "Extra Point Attempts",
+              "abbreviation": "Att",
+              "type": "INTEGER"
+          },
+          {
+              "category": "PAT",
+              "fullName": "xpPct",
+              "description": "Extra Points %",
+              "abbreviation": "Xp%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "PAT",
+              "fullName": "fgAndXpPts",
+              "description": "FG + XP Points",
+              "abbreviation": "FgXpPts",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "kickoffs",
+              "description": "Kickoffs",
+              "abbreviation": "KO",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koYds",
+              "description": "Kickoff Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koOOB",
+              "description": "Kickoffs Out-Of-Bounds",
+              "abbreviation": "OOB",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koAvg",
+              "description": "Kickoffs Average",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koTB",
+              "description": "Kickoff Touchbacks",
+              "abbreviation": "TB",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koRet",
+              "description": "Kickoff Returns",
+              "abbreviation": "Ret",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koRetYds",
+              "description": "Kickoff Returns Yards",
+              "abbreviation": "RetYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koRetAvgYds",
+              "description": "Kickoff Returns Average Yards",
+              "abbreviation": "RetAvgYds",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koTD",
+              "description": "Kickoff Touchdowns",
+              "abbreviation": "TD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koOS",
+              "description": "Kickoffs Onside",
+              "abbreviation": "OS",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Kickoffs",
+              "fullName": "koOSR",
+              "description": "Kickoffs Onside Recovered",
+              "abbreviation": "OSR",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "punts",
+              "description": "Punts",
+              "abbreviation": "Punts",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntYds",
+              "description": "Punt Yards",
+              "abbreviation": "Yds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntNetYds",
+              "description": "Punt Net Yards",
+              "abbreviation": "NetYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntLng",
+              "description": "Longest Punt",
+              "abbreviation": "Lng",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntAvg",
+              "description": "Average Punt Yards",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntNetAvg",
+              "description": "Average Net Punt Yards",
+              "abbreviation": "NetAvg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntBlk",
+              "description": "Blocked Punts",
+              "abbreviation": "Blk",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntOOB",
+              "description": "Punts Out-of-Bounds",
+              "abbreviation": "OOB",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntDown",
+              "description": "Punts Downed",
+              "abbreviation": "Down",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntIn20",
+              "description": "Punts Inside 20 Yard Line",
+              "abbreviation": "In20",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntIn20Pct",
+              "description": "Punts Inside 20 Yard Line %",
+              "abbreviation": "In20%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntTB",
+              "description": "Punt Touchbacks",
+              "abbreviation": "TB",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntTBPct",
+              "description": "Punt Touchback %",
+              "abbreviation": "TB%",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntFC",
+              "description": "Punt Fair Catches",
+              "abbreviation": "FC",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntRet",
+              "description": "Punt Returns",
+              "abbreviation": "Ret",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntRetYds",
+              "description": "Punt Return Yards",
+              "abbreviation": "RetYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Punting",
+              "fullName": "puntRetAvg",
+              "description": "Punt Average Return Yards",
+              "abbreviation": "RetAvg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "firstDownsTotal",
+              "description": "Total 1st Downs",
+              "abbreviation": "1stDownsTotal",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "firstDownsPass",
+              "description": "Passing 1st Downs",
+              "abbreviation": "1stDownsPass",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "firstDownsRush",
+              "description": "Rushing 1st Downs",
+              "abbreviation": "1stDownsRush",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "firstDownsPenalty",
+              "description": "Penalty 1stDowns",
+              "abbreviation": "1stDownsPen",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "thirdDowns",
+              "description": "3rd Downs Made",
+              "abbreviation": "3rdDowns",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "thirdDownsAtt",
+              "description": "3rd Downs Attempted",
+              "abbreviation": "3rdDownsAtt",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "thirdDownsPct",
+              "description": "3rd Downs %",
+              "abbreviation": "3rdDownsPct",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "fourthDowns",
+              "description": "4th Downs Made",
+              "abbreviation": "4thDowns",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "fourthDownsAtt",
+              "description": "4th Downs Attempted",
+              "abbreviation": "4thDownsAtt",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "fourthDownsPct",
+              "description": "4th Downs %",
+              "abbreviation": "4thDownsPct",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "penalties",
+              "description": "Penalties",
+              "abbreviation": "Penalties",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "penaltyYds",
+              "description": "Penalty Yards",
+              "abbreviation": "PenaltyYards",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "offensePlays",
+              "description": "Offense Plays",
+              "abbreviation": "OffensePlays",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "offenseYds",
+              "description": "Offense Total Yards",
+              "abbreviation": "OffenseYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "offenseAvgYds",
+              "description": "Offense Average Yards",
+              "abbreviation": "OffenseAvgYds",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Team Stats",
+              "fullName": "totalTD",
+              "description": "Total Touchdowns",
+              "abbreviation": "TotalTD",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "wins",
+              "description": "Wins",
+              "abbreviation": "W",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "losses",
+              "description": "Losses",
+              "abbreviation": "L",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "ties",
+              "description": "Ties",
+              "abbreviation": "T",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "oTWins",
+              "description": "Overtime Wins",
+              "abbreviation": "OTW",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "oTLosses",
+              "description": "Overtime Losses",
+              "abbreviation": "OTL",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "winPct",
+              "description": "Win %",
+              "abbreviation": "Win %",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "pointsFor",
+              "description": "Points For",
+              "abbreviation": "PF",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "pointsAgainst",
+              "description": "Points Against",
+              "abbreviation": "PA",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Team Standings",
+              "fullName": "pointDifferential",
+              "description": "Point Differential",
+              "abbreviation": "PtDiff",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Interceptions",
+              "fullName": "safeties",
+              "description": "Safeties",
+              "abbreviation": "Sfty",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passNetYards",
+              "description": "Pass Net Yards",
+              "abbreviation": "NetYds",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Passing",
+              "fullName": "passAvg",
+              "description": "Pass Avg Yards",
+              "abbreviation": "Avg",
+              "type": "DECIMAL"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtAtt",
+              "description": "2PT Conversion Attempts",
+              "abbreviation": "2PTAtt",
+              "type": "INTEGER"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtMade",
+              "description": "2PT Conversions Made",
+              "abbreviation": "2PTMade",
+              "type": "INTEGER"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtPassAtt",
+              "description": "2PT Conversion Pass Attempts",
+              "abbreviation": "2PTPassAtt",
+              "type": "INTEGER"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtPassMade",
+              "description": "2PT Conversion Passes Made",
+              "abbreviation": "2PTPassMade",
+              "type": "INTEGER"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtRushAtt",
+              "description": "2PT Conversion Rush Attempts",
+              "abbreviation": "2PTRushAtt",
+              "type": "INTEGER"
+          },
+          {
+              "category": "2PT",
+              "fullName": "twoPtRushMade",
+              "description": "2PT Conversion Rushes Made",
+              "abbreviation": "2PTRushMade",
+              "type": "INTEGER"
+          },
+          {
+              "category": "Tackles",
+              "fullName": "tacklesForLoss",
+              "description": "Tackles For a Loss",
+              "abbreviation": "TFL",
+              "type": "INTEGER"
+          }
+      ]
+  }
+}

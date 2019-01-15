@@ -12,7 +12,7 @@ defmodule MySportsFeeds.Cache.Supervisor do
 
   def init(:ok) do
     children = [
-      worker(Cachex, [:app_cache, [], []])
+      worker(Cachex, [:app_cache, []])
     ]
 
     supervise(children, strategy: :one_for_one)
