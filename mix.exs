@@ -5,7 +5,7 @@ defmodule MySportsFeeds.Mixfile do
     [app: :my_sports_feeds,
      description: "A HTTP API wrapper for mysportsfeeds.com",
      source_url: "https://github.com/dustinsmith1024/my_sports_feeds",
-     version: "0.1.2",
+     version: "2.0.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -34,10 +34,13 @@ defmodule MySportsFeeds.Mixfile do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:httpoison, "~> 0.11.2"},
+      # {:httpoison, "~> 0.11.2"},
       {:poison, "~> 3.1"},
       {:cachex, "~> 2.1"},
       {:credo, "~> 0.7", only: [:dev, :test]},
+      {:tesla, "~> 1.2.0"},
+      {:hackney, "~> 1.14.0"}, # optional, but recommended adapter
+      {:jason, ">= 1.0.0"} ,
     ]
   end
 
