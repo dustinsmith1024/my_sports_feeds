@@ -1,16 +1,7 @@
-defmodule MSF.NFL do
+defmodule MSF.NBA do
   @moduledoc """
-  My Sports Feeds NFL Feeds
+  My Sports Feeds NBA Feeds
   """
-
-  def user_repos(client, login) do
-    # pass `client` argument to `get` function
-    Tesla.get(client, "/user/" <> login <> "/repos")
-  end
-
-  def issues(client) do
-    Tesla.get(client, "/issues")
-  end
 
   # team={list-of-teams} (filter teams)
   # date={date-range} (filter on dates) -> 20170427 or 'today', or 'yesterday
@@ -19,10 +10,10 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.games(c, [season: "latest", team: "kc,ne"])
+  # iex(3)> MSF.NBA.games(c, [season: "latest", team: "gsw,bos"])
   def games(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/games.json", query: params)
+    Tesla.get(client, "/nba/#{season}/games.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -36,7 +27,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def dfs(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/dfs.json", query: params)
+    Tesla.get(client, "/nba/#{season}/dfs.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -51,7 +42,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def player_gamelogs(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/player_gamelogs.json", query: params)
+    Tesla.get(client, "/nba/#{season}/player_gamelogs.json", query: params)
   end
 
   # teamstats={list-of-team-stats} (filter team stats)
@@ -62,7 +53,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def boxscore(client, game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/games/#{game}/boxscore.json", query: params)
+    Tesla.get(client, "/nba/#{season}/games/#{game}/boxscore.json", query: params)
   end
 
   # playtype={list-of-play-types} (filter play-by-play types)
@@ -72,7 +63,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def playbyplay(client, game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/games/#{game}/playbyplay.json", query: params)
+    Tesla.get(client, "/nba/#{season}/games/#{game}/playbyplay.json", query: params)
   end
 
   # position={list-of-positions} (filter player positions)
@@ -80,13 +71,13 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def lineup(client, game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/games/#{game}/lineup.json", query: params)
+    Tesla.get(client, "/nba/#{season}/games/#{game}/lineup.json", query: params)
   end
 
   # date={date} (specify a date)
   # force={force-if-not-modified} (force content)
   def current_season(client, query \\ []) do
-    Tesla.get(client, "/nfl/current_season.json", query: query)
+    Tesla.get(client, "/nba/current_season.json", query: query)
   end
 
   # player={list-of-players} (filter players)
@@ -97,13 +88,13 @@ defmodule MSF.NFL do
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
   def injuries(client, query \\ []) do
-    Tesla.get(client, "/nfl/injuries.json", query: query)
+    Tesla.get(client, "/nba/injuries.json", query: query)
   end
 
   # force={force-if-not-modified} (force content)
   def latest_updates(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/latest_updates.json", query: params)
+    Tesla.get(client, "/nba/#{season}/latest_updates.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -115,7 +106,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def team_stats_totals(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/team_stats_totals.json", query: params)
+    Tesla.get(client, "/nba/#{season}/team_stats_totals.json", query: params)
   end
 
   # player={list-of-players} (filter players)
@@ -130,14 +121,14 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def player_stats_totals(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/player_stats_totals.json", query: params)
+    Tesla.get(client, "/nba/#{season}/player_stats_totals.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
   # force={force-if-not-modified} (force content)
   def venues(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/venues.json", query: params)
+    Tesla.get(client, "/nba/#{season}/venues.json", query: params)
   end
 
   # season={season-identifier} (filter on a specific season)
@@ -151,9 +142,9 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(5)> MSF.players(c, [position: "qb", season: "latest", team: "kc", rosterstatus: "assigned-to-roster"])
+  # iex(5)> MSF.NBA.players(c, [position: "g", season: "latest", team: "bos", rosterstatus: "assigned-to-roster"])
   def players(client, query \\ []) do
-    Tesla.get(client, "/nfl/players.json", query: query)
+    Tesla.get(client, "/nba/players.json", query: query)
   end
 
   # date={date} (specify a date)
@@ -162,7 +153,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def standings(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/standings.json", query: params)
+    Tesla.get(client, "/nba/#{season}/standings.json", query: params)
   end
 
   # player={list-of-players} (filter players)
@@ -175,11 +166,11 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.player_stats_total(c, [season: "latest", player: "tyreek-hill"])
-  # iex(8)> MSF.player_stats_totals(c, [position: "qb", season: "2018-regular", team: "kc"])
+  # iex(3)> MSF.NBA.player_stats_total(c, [season: "latest", player: "kevin-durant"])
+  # iex(8)> MSF.NBA.player_stats_totals(c, [position: "g", season: "2018-regular", team: "gsw"])
   def player_stats_total(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    Tesla.get(client, "/nfl/#{season}/player_stats_totals.json", query: params)
+    Tesla.get(client, "/nba/#{season}/player_stats_totals.json", query: params)
   end
 
   # build dynamic client based on runtime arguments
@@ -188,8 +179,8 @@ defmodule MSF.NFL do
   end
 
   def client(token) do
-    # "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
-    # "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
+    # "https://api.mysportsfeeds.com/v2.0/pull/nba/#{season}/player_stats_totals.json?#{query_params}"
+    # "https://www.mysportsfeeds.com/api/feed/pull/nba/#{season}/daily_player_stats.json?#{query_params}"
     middleware = [
       Tesla.Middleware.Logger,
       {Tesla.Middleware.BaseUrl, "https://api.mysportsfeeds.com/v2.0/pull"},
