@@ -25,9 +25,25 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  def dfs(client, query \\ []) do
+  def season_dfs(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     Tesla.get(client, "/nba/#{season}/dfs.json", query: params)
+  end
+
+  # team={list-of-teams} (filter teams)
+  # player={list-of-players} (filter players)
+  # position={list-of-positions} (filter player positions)
+  # country={list-of-countries} (filter player countries of birth)
+  # dfstype={list-of-dfs-types} (filter DFS types)
+  # sort={sort-specifier} (sort the feed's content)
+  # offset={offset-specifier} (filter results starting at the given offset)
+  # limit={limit-specifier} (limit the maximum # of results)
+  # force={force-if-not-modified} (force content)
+  # iex(7)> MSF.NBA.daily_dfs(c, [date: "20190114"])
+  def daily_dfs(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nba/#{season}/date/#{date}/dfs.json", query: params2)
   end
 
   # team={list-of-teams} (filter teams)
