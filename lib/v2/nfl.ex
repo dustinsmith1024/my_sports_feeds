@@ -26,6 +26,18 @@ defmodule MSF.NFL do
   end
 
   # team={list-of-teams} (filter teams)
+  # status={list-of-game-statuses} (filter game statuses)
+  # sort={sort-specifier} (sort the feed's content)
+  # offset={offset-specifier} (filter results starting at the given offset)
+  # limit={limit-specifier} (limit the maximum # of results)
+  # force={force-if-not-modified} (force content)
+  def weekly_games(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {week, params2} = Keyword.pop(params, :week, 1) # dont default this?
+    Tesla.get(client, "/nfl/#{season}/week/#{week}/games.json", query: params2)
+  end
+
+  # team={list-of-teams} (filter teams)
   # player={list-of-players} (filter players)
   # position={list-of-positions} (filter player positions)
   # country={list-of-countries} (filter player countries of birth)
@@ -34,9 +46,25 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  def dfs(client, query \\ []) do
+  def seasonal_dfs(client, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     Tesla.get(client, "/nfl/#{season}/dfs.json", query: params)
+  end
+
+  # team={list-of-teams} (filter teams)
+  # player={list-of-players} (filter players)
+  # position={list-of-positions} (filter player positions)
+  # country={list-of-countries} (filter player countries of birth)
+  # dfstype={list-of-dfs-types} (filter DFS types)
+  # sort={sort-specifier} (sort the feed's content)
+  # offset={offset-specifier} (filter results starting at the given offset)
+  # limit={limit-specifier} (limit the maximum # of results)
+  # force={force-if-not-modified} (force content)
+  # iex(7)> MSF.NBA.daily_dfs(c, [date: "20190114"])
+  def daily_dfs(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nfl/#{season}/date/#{date}/dfs.json", query: params2)
   end
 
   # team={list-of-teams} (filter teams)
