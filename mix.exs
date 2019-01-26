@@ -1,4 +1,7 @@
-defmodule MySportsFeeds.Mixfile do
+defmodule MSF.Mixfile do
+  @moduledoc """
+  my mixfile
+  """
   use Mix.Project
 
   def project do
@@ -19,7 +22,7 @@ defmodule MySportsFeeds.Mixfile do
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger],
-      mod: {MySportsFeeds, []}]
+      mod: {MSF, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -34,10 +37,7 @@ defmodule MySportsFeeds.Mixfile do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      # {:httpoison, "~> 0.11.2"},
       {:poison, "~> 3.1"},
-      {:cachex, "~> 3.0"},
-      {:phoenix_pubsub, "~> 1.0"},
       {:credo, "~> 0.7", only: [:dev, :test]},
       {:tesla, "~> 1.2.0"},
       {:hackney, "~> 1.14.0"}, # optional, but recommended adapter
