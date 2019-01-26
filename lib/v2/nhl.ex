@@ -1,6 +1,6 @@
-defmodule MSF.NFL do
+defmodule MSF.NHL do
   @moduledoc """
-  My Sports Feeds NFL Feeds
+  My Sports Feeds NHL Feeds
   """
   alias MSF
 
@@ -11,22 +11,10 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.games([season: "latest", team: "kc,ne"])
+  # iex(3)> MSF.NHL.games([season: "latest", team: "gsw,bos"])
   def games(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/games.json", query: params)
-  end
-
-  # team={list-of-teams} (filter teams)
-  # status={list-of-game-statuses} (filter game statuses)
-  # sort={sort-specifier} (sort the feed's content)
-  # offset={offset-specifier} (filter results starting at the given offset)
-  # limit={limit-specifier} (limit the maximum # of results)
-  # force={force-if-not-modified} (force content)
-  def weekly_games(query \\ []) do
-    {season, params} = Keyword.pop(query, :season, "latest")
-    {week, params2} = Keyword.pop(params, :week, 1) # dont default this?
-    MSF.get("/nfl/#{season}/week/#{week}/games.json", query: params2)
+    MSF.get("/nhl/#{season}/games.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -38,9 +26,9 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  def seasonal_dfs(query \\ []) do
+  def season_dfs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/dfs.json", query: params)
+    MSF.get("/nhl/#{season}/dfs.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -52,11 +40,11 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(7)> MSF.NBA.daily_dfs([date: "20190114"])
+  # iex(7)> MSF.NHL.daily_dfs([date: "20190114"])
   def daily_dfs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     {date, params2} = Keyword.pop(params, :date, "today")
-    MSF.get("/nfl/#{season}/date/#{date}/dfs.json", query: params2)
+    MSF.get("/nhl/#{season}/date/#{date}/dfs.json", query: params2)
   end
 
   # team={list-of-teams} (filter teams)
@@ -71,7 +59,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def player_gamelogs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/player_gamelogs.json", query: params)
+    MSF.get("/nhl/#{season}/player_gamelogs.json", query: params)
   end
 
   # teamstats={list-of-team-stats} (filter team stats)
@@ -82,7 +70,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def boxscore(game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/games/#{game}/boxscore.json", query: params)
+    MSF.get("/nhl/#{season}/games/#{game}/boxscore.json", query: params)
   end
 
   # playtype={list-of-play-types} (filter play-by-play types)
@@ -92,7 +80,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def playbyplay(game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/games/#{game}/playbyplay.json", query: params)
+    MSF.get("/nhl/#{season}/games/#{game}/playbyplay.json", query: params)
   end
 
   # position={list-of-positions} (filter player positions)
@@ -100,13 +88,13 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def lineup(game, query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/games/#{game}/lineup.json", query: params)
+    MSF.get("/nhl/#{season}/games/#{game}/lineup.json", query: params)
   end
 
   # date={date} (specify a date)
   # force={force-if-not-modified} (force content)
   def current_season(query \\ []) do
-    MSF.get("/nfl/current_season.json", query: query)
+    MSF.get("/nhl/current_season.json", query: query)
   end
 
   # player={list-of-players} (filter players)
@@ -117,13 +105,13 @@ defmodule MSF.NFL do
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
   def injuries(query \\ []) do
-    MSF.get("/nfl/injuries.json", query: query)
+    MSF.get("/nhl/injuries.json", query: query)
   end
 
   # force={force-if-not-modified} (force content)
   def latest_updates(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/latest_updates.json", query: params)
+    MSF.get("/nhl/#{season}/latest_updates.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
@@ -135,7 +123,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def team_stats_totals(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/team_stats_totals.json", query: params)
+    MSF.get("/nhl/#{season}/team_stats_totals.json", query: params)
   end
 
   # player={list-of-players} (filter players)
@@ -150,14 +138,14 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def player_stats_totals(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/player_stats_totals.json", query: params)
+    MSF.get("/nhl/#{season}/player_stats_totals.json", query: params)
   end
 
   # team={list-of-teams} (filter teams)
   # force={force-if-not-modified} (force content)
   def venues(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/venues.json", query: params)
+    MSF.get("/nhl/#{season}/venues.json", query: params)
   end
 
   # season={season-identifier} (filter on a specific season)
@@ -171,9 +159,9 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(5)> MSF.players([position: "qb", season: "latest", team: "kc", rosterstatus: "assigned-to-roster"])
+  # iex(5)> MSF.NHL.players([position: "g", season: "latest", team: "bos", rosterstatus: "assigned-to-roster"])
   def players(query \\ []) do
-    MSF.get("/nfl/players.json", query: query)
+    MSF.get("/nhl/players.json", query: query)
   end
 
   # date={date} (specify a date)
@@ -182,7 +170,7 @@ defmodule MSF.NFL do
   # force={force-if-not-modified} (force content)
   def standings(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/standings.json", query: params)
+    MSF.get("/nhl/#{season}/standings.json", query: params)
   end
 
   # player={list-of-players} (filter players)
@@ -195,63 +183,34 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.player_stats_total([season: "latest", player: "tyreek-hill"])
-  # iex(8)> MSF.player_stats_totals([position: "qb", season: "2018-regular", team: "kc"])
+  # iex(3)> MSF.NHL.player_stats_total([season: "latest", player: "kevin-durant"])
+  # iex(8)> MSF.NHL.player_stats_totals([position: "g", season: "2018-regular", team: "gsw"])
   def player_stats_total(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
-    MSF.get("/nfl/#{season}/player_stats_totals.json", query: params)
+    MSF.get("/nhl/#{season}/player_stats_totals.json", query: params)
   end
 
+
   # 20190122
-  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/odds_gamelines.json?team=bos
+  # https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/odds_gamelines.json?team=bos
   # requires a team query param
   def odds_gamelines(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     # TODO: add case to auto handle the daily games
-    MSF.get("/nfl/#{season}/odds_gamelines.json", query: params)
+    MSF.get("/nhl/#{season}/odds_gamelines.json", query: params)
   end
 
   # requires a date
-  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190120/odds_gamelines.json
-  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190203/odds_gamelines.json
   def daily_odds_gamelines(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     {date, params2} = Keyword.pop(params, :date, "today")
-    MSF.get("/nfl/#{season}/date/#{date}/odds_gamelines.json", query: params2)
-  end
-
-  # this wasnt working right when testing via postman
-  def weekly_odds_gamelines(query \\ []) do
-    {season, params} = Keyword.pop(query, :season, "latest")
-    {week, params2} = Keyword.pop(params, :week, 1)
-    MSF.get("/nfl/#{season}/week/#{week}/odds_gamelines.json", query: params2)
+    MSF.get("/nhl/#{season}/date/#{date}/odds_gamelines.json", query: params2)
   end
 
   # requires a date
-  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190125/odds_futures.json
   def daily_odds_futures(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     {date, params2} = Keyword.pop(params, :date, "today")
-    MSF.get("/nfl/#{season}/date/#{date}/odds_futures.json", query: params2)
-  end
-
-  # build dynamic client based on runtime arguments
-  def client() do
-    client(System.get_env("MY_SPORTS_FEEDS_TOKEN"))
-  end
-
-  def client(token) do
-    # "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
-    # "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
-    middleware = [
-      Tesla.Middleware.Logger,
-      {Tesla.Middleware.BaseUrl, "https://api.mysportsfeeds.com/v2.0/pull"},
-      Tesla.Middleware.JSON,
-      {Tesla.Middleware.Headers, [{"Authorization", "Basic " <> token}]}
-      # provide an options for this?
-      # {Tesla.Middleware.Query, [force: "true"]},
-    ]
-
-    Tesla.client(middleware)
+    MSF.get("/nhl/#{season}/date/#{date}/odds_futures.json", query: params2)
   end
 end

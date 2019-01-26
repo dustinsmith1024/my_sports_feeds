@@ -11,7 +11,7 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.NBA.games(c, [season: "latest", team: "gsw,bos"])
+  # iex(3)> MSF.NBA.games([season: "latest", team: "gsw,bos"])
   def games(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     MSF.get("/nba/#{season}/games.json", query: params)
@@ -40,7 +40,7 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(7)> MSF.NBA.daily_dfs(c, [date: "20190114"])
+  # iex(7)> MSF.NBA.daily_dfs([date: "20190114"])
   def daily_dfs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     {date, params2} = Keyword.pop(params, :date, "today")
@@ -159,7 +159,7 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(5)> MSF.NBA.players(c, [position: "g", season: "latest", team: "bos", rosterstatus: "assigned-to-roster"])
+  # iex(5)> MSF.NBA.players([position: "g", season: "latest", team: "bos", rosterstatus: "assigned-to-roster"])
   def players(query \\ []) do
     MSF.get("/nba/players.json", query: query)
   end
@@ -183,8 +183,8 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
-  # iex(3)> MSF.NBA.player_stats_total(c, [season: "latest", player: "kevin-durant"])
-  # iex(8)> MSF.NBA.player_stats_totals(c, [position: "g", season: "2018-regular", team: "gsw"])
+  # iex(3)> MSF.NBA.player_stats_total([season: "latest", player: "kevin-durant"])
+  # iex(8)> MSF.NBA.player_stats_totals([position: "g", season: "2018-regular", team: "gsw"])
   def player_stats_total(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     MSF.get("/nba/#{season}/player_stats_totals.json", query: params)
