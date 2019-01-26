@@ -210,6 +210,47 @@ defmodule MSF.NFL do
     Tesla.get(client, "/nfl/#{season}/player_stats_totals.json", query: params)
   end
 
+  # 20190122
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/odds_gamelines.json?team=bos
+  # requires a team query param
+  def odds_gamelines(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    # TODO: add case to auto handle the daily games
+    Tesla.get(client, "/nfl/#{season}/odds_gamelines.json", query: params)
+  end
+
+  # requires a date
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190120/odds_gamelines.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190203/odds_gamelines.json
+  def daily_odds_gamelines(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nfl/#{season}/date/#{date}/odds_gamelines.json", query: params2)
+  end
+
+  # this wasnt working right when testing via postman
+  def weekly_odds_gamelines(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {week, params2} = Keyword.pop(params, :week, 1)
+    Tesla.get(client, "/nfl/#{season}/week/#{week}/odds_gamelines.json", query: params2)
+  end
+
+  # requires a date
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoffs/date/20190125/odds_futures.json
+  def daily_odds_futures(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nfl/#{season}/date/#{date}/odds_futures.json", query: params2)
+  end
+
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-2019-regular/odds_gamelines.json?team=lac
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-2019-regular/date/20190122/odds_gamelines.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2019-playoff/week/22/odds_gamelines.json
+
+  # https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/date/20190122/odds_futures.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/date/20190122/odds_futures.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-2019-regular/date/20190122/odds_futures.json (edited)
+
   # build dynamic client based on runtime arguments
   def client() do
     client(System.get_env("MY_SPORTS_FEEDS_TOKEN"))

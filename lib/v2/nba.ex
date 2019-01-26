@@ -189,6 +189,36 @@ defmodule MSF.NBA do
     Tesla.get(client, "/nba/#{season}/player_stats_totals.json", query: params)
   end
 
+
+  # 20190122
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/odds_gamelines.json?team=bos
+  # requires a team query param
+  def odds_gamelines(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    # TODO: add case to auto handle the daily games
+    Tesla.get(client, "/nba/#{season}/odds_gamelines.json", query: params)
+  end
+
+  # requires a date
+  def daily_odds_gamelines(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nba/#{season}/date/#{date}/odds_gamelines.json", query: params2)
+  end
+
+  # requires a date
+  def daily_odds_futures(client, query \\ []) do
+    {season, params} = Keyword.pop(query, :season, "latest")
+    {date, params2} = Keyword.pop(params, :date, "today")
+    Tesla.get(client, "/nba/#{season}/date/#{date}/odds_futures.json", query: params2)
+  end
+
+  # https://api.mysportsfeeds.com/v2.0/pull/nhl/2018-2019-regular/date/20190122/odds_futures.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/date/20190122/odds_futures.json
+  # https://api.mysportsfeeds.com/v2.0/pull/nfl/2018-2019-regular/date/20190122/odds_futures.json (edited)
+
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/odds_gamelines.json?team=bos
+  # https://api.mysportsfeeds.com/v2.0/pull/nba/2018-2019-regular/date/20190122/odds_gamelines.json
   # build dynamic client based on runtime arguments
   def client() do
     client(System.get_env("MY_SPORTS_FEEDS_TOKEN"))
