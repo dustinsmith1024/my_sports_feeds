@@ -51,10 +51,10 @@ defmodule MSF do
 
       MSF.NBA.games(api_key: "API_KEY")
 
-      config :my_sports_feeds,
+      config :msf,
         api_key: "your_token"
 
-      config :my_sports_feeds,
+      config :msf,
         api_key: {:system, "MY_SPORTS_FEEDS_API_KEY"}
       """
     end

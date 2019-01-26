@@ -8,26 +8,11 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
-
-config :my_sports_feeds, token: System.get_env("MY_SPORTS_FEEDS_TOKEN")
+config :msf, api_key: {:system, "MY_SPORTS_FEEDS_API_KEY"}
 
 config :tesla, adapter: Tesla.Adapter.Hackney
 config :tesla, Tesla.Middleware.Logger, format: "$method $url ====> $status / time=$time"
 
-# config :ex_twilio, auth_token:  System.get_env("TWILIO_AUTH_TOKEN")
-
-# You can configure for your application as:
-#
-#     config :my_sports_feeds, key: :value
-#
-# And access this configuration in your application as:
-#
-#     Application.get_env(:my_sports_feeds, :key)
-#
-# Or configure a 3rd-party app:
-#
-#     config :logger, level: :info
-#
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

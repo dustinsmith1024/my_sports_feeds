@@ -69,6 +69,7 @@ defmodule MSF.NFL do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
+  # iex(15)> MSF.NFL.player_gamelogs(date: "20190120", player: "tyreek-hill", season: "2019-playoffs")
   def player_gamelogs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     MSF.get("/nfl/#{season}/player_gamelogs.json", query: params)
@@ -233,25 +234,5 @@ defmodule MSF.NFL do
     {season, params} = Keyword.pop(query, :season, "latest")
     {date, params2} = Keyword.pop(params, :date, "today")
     MSF.get("/nfl/#{season}/date/#{date}/odds_futures.json", query: params2)
-  end
-
-  # build dynamic client based on runtime arguments
-  def client() do
-    client(System.get_env("MY_SPORTS_FEEDS_TOKEN"))
-  end
-
-  def client(token) do
-    # "https://api.mysportsfeeds.com/v2.0/pull/nfl/#{season}/player_stats_totals.json?#{query_params}"
-    # "https://www.mysportsfeeds.com/api/feed/pull/nfl/#{season}/daily_player_stats.json?#{query_params}"
-    middleware = [
-      Tesla.Middleware.Logger,
-      {Tesla.Middleware.BaseUrl, "https://api.mysportsfeeds.com/v2.0/pull"},
-      Tesla.Middleware.JSON,
-      {Tesla.Middleware.Headers, [{"Authorization", "Basic " <> token}]}
-      # provide an options for this?
-      # {Tesla.Middleware.Query, [force: "true"]},
-    ]
-
-    Tesla.client(middleware)
   end
 end

@@ -5,7 +5,7 @@ defmodule MSF.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :my_sports_feeds,
+    [app: :msf,
      description: "A HTTP API wrapper for mysportsfeeds.com",
      source_url: "https://github.com/dustinsmith1024/my_sports_feeds",
      version: "2.0.0",
@@ -21,8 +21,7 @@ defmodule MSF.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger],
-      mod: {MSF, []}]
+    [extra_applications: [:logger]]
   end
 
   # Dependencies can be Hex packages:

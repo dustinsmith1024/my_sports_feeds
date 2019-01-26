@@ -57,6 +57,7 @@ defmodule MSF.NBA do
   # offset={offset-specifier} (filter results starting at the given offset)
   # limit={limit-specifier} (limit the maximum # of results)
   # force={force-if-not-modified} (force content)
+  # iex(4)> {:ok, %{body: body}} = MSF.NBA.player_gamelogs(player: "kevin-durant", season: "2018-2019-regular")
   def player_gamelogs(query \\ []) do
     {season, params} = Keyword.pop(query, :season, "latest")
     MSF.get("/nba/#{season}/player_gamelogs.json", query: params)
