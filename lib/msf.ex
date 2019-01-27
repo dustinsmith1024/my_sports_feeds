@@ -63,7 +63,7 @@ defmodule MSF do
   end
 
   defp config_key do
-    case Application.get_env(:my_sports_feeds, :api_key) do
+    case Application.get_env(:msf, :api_key) do
       # Grabs the name you configured out of ENV
       {:system, env_key} ->
         IO.puts("hi?", env_key)
