@@ -30,7 +30,7 @@ defmodule MSF do
   def client(token) when token != nil do
     middleware = [
       Tesla.Middleware.Logger,
-      {Tesla.Middleware.BaseUrl, "https://api.mysportsfeeds.com/v2.0/pull"},
+      {Tesla.Middleware.BaseUrl, "https://api.mysportsfeeds.com/v2.1/pull"},
       Tesla.Middleware.JSON,
       {Tesla.Middleware.Headers, [{"Authorization", "Basic " <> token}]}
     ]
@@ -66,7 +66,7 @@ defmodule MSF do
     case Application.get_env(:msf, :api_key) do
       # Grabs the name you configured out of ENV
       {:system, env_key} ->
-        IO.puts("hi?", env_key)
+        # IO.puts("hi?", env_key)
         case System.get_env(env_key) do
           nil -> raise RuntimeError, "ENV Variable not set correctly"
           "" -> raise RuntimeError, "ENV Variable not set correctly"
